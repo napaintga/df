@@ -1,0 +1,8 @@
+HardFault_Handler
+SVC_Handler
+NvicMux0_IRQHandler
+NvicMux2_IRQHandler
+NvicMux31_IRQHandler
+
+Cy_SI_GetSecureKeyAddr
+Cy_SI_GetVersion

@@ -1,0 +1,208 @@
+<!-- Default approvals to use when including Cypress PDL pack files.
+     Values with [] are expressions evaluated in the context of the current project/selected device
+     -->
+<PdscDefaults xmlns="http://cypress.com/xsd/PdscDefaults">
+  <defaultDocumentation path ="doc/pdl_api_reference_manual/html/index.html" />
+
+  <defaultFilters>
+    <filter key="Dvendor" value="Cypress:19" />
+    <filter key="Cvendor" value="Cypress:19" />
+    <filter key="Cvendor" value="ARM CMSIS:109" />
+
+    <filter key="Tcompiler" value="ARMCC" />
+    <filter key="Tcompiler" value="GCC" />
+    <filter key="Tcompiler" value="IAR" />
+
+    <filter key="Dendian" value="Little-endian" />
+    <filter key="Dfpu" value="[FPU]" />
+    <filter key="Dmpu" value="[MPU]" />
+
+    <filter key="Dname" value="[DevCatRsc.PDL_ID]" />
+    <filter key="Dname" value="[DeviceName]" />
+    <filter key="Dfamily" value="[FamilyName]" />
+    <filter key="DsubFamily" value="[SeriesName]" />
+    <filter key="Dcore" value="[ProcessorTypes]" />
+    <filter key="Pname" value="[CoreNames]" />
+  </defaultFilters>
+
+  <defaultComponents>
+    <group>
+      <attribute key="Cvendor" value="ARM CMSIS:109" />
+      <attribute key="Cclass" value="CMSIS" />
+      <attribute key="Cgroup" value="CORE" />
+      <attribute key="Cversion" value="5.0" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="ARM:82" />
+      <attribute key="Cclass" value="CMSIS" />
+      <attribute key="Cgroup" value="CORE" />
+      <attribute key="Cversion" value="5.0" />
+    </group>
+    <group>
+      <attribute key="Cclass" value="CMSIS" />
+      <attribute key="Cgroup" value="CORE" />
+      <attribute key="Cversion" value="5.0" />
+    </group>
+
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="Device" />
+      <attribute key="Cgroup" value="Startup" />
+      <attribute key="Cversion" value="2.10" />
+    </group>
+
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="bleclk" />
+      <attribute key="Cversion" value="2.20" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="flash" />
+      <attribute key="Cversion" value="3.11" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="gpio" />
+      <attribute key="Cversion" value="1.10" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="ipc" />
+      <attribute key="Cversion" value="1.20" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="profile" />
+      <attribute key="Cversion" value="1.0" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="prot" />
+      <attribute key="Cversion" value="1.10" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="sysclk" />
+      <attribute key="Cversion" value="1.11" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="sysint" />
+      <attribute key="Cversion" value="1.10" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="syslib" />
+      <attribute key="Cversion" value="2.0" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="syspm" />
+      <attribute key="Cversion" value="2.21" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="systick" />
+      <attribute key="Cversion" value="1.0" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="trigmux" />
+      <attribute key="Cversion" value="1.10" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="wdt" />
+      <attribute key="Cversion" value="1.0" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="lvd" />
+      <attribute key="Cversion" value="1.0" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="sysanalog" />
+      <attribute key="Cversion" value="1.0" />
+    </group>
+	<group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="efuse" />
+      <attribute key="Cversion" value="1.0" />
+    </group>
+  </defaultComponents>
+  <!-- SW components / middleware that should appear on the Middleware tab -->
+  <showOnMiddlewareTab>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="PDL" />
+      <attribute key="Cgroup" value="crypto" />
+      <attribute key="Cversion" value="2.0" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="bootloader" />
+      <attribute key="Cgroup" value="bootloader_sdk" />
+      <attribute key="Cversion" value="2.20" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Real Time Engineers Ltd." />
+      <attribute key="Cclass" value="RTOS" />
+      <attribute key="Cgroup" value="FreeRTOS" />
+      <attribute key="Cversion" value="10.0.1" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Cypress:19" />
+      <attribute key="Cclass" value="utilities" />
+      <attribute key="Cgroup" value="Retarget I/O" />
+      <attribute key="Cversion" value="1.10" />
+    </group>
+    <group>
+      <attribute key="Cvendor" value="Segger" />
+      <attribute key="Cclass" value="Graphics" />
+      <attribute key="Cgroup" value="emWin" />
+      <attribute key="Cversion" value="5.46" />
+    </group>
+  </showOnMiddlewareTab>
+
+  <!-- Various utilities and tools -->
+  <tools>
+    <component Cclass="Tools" Cgroup="cymcuelftool" Cvariant="Windows" Cversion="1.0.0" condition="PDL Device">
+      <description>A Windows version of a command line tool for post processing elf files</description>
+      <files>
+        <file category="utility" name="tools/win/elf/cymcuelftool.exe" />
+      </files>
+    </component>
+
+    <component Cclass="Tools" Cgroup="cymcuelftool" Cvariant="Linux" Cversion="1.0.0" condition="PDL Device">
+      <description>A Linux version of a command line tool for post processing elf files</description>
+      <files>
+        <file category="utility" name="tools/linux/elf/cymcuelftool" />
+      </files>
+    </component>
+
+    <component Cclass="Tools" Cgroup="cymcuelftool" Cvariant="OS X" Cversion="1.0.0" condition="PDL Device">
+      <description>An OS X version of a command line tool for post processing elf files</description>
+      <files>
+        <file category="utility" name="tools/osx/elf/cymcuelftool" />
+      </files>
+    </component>
+  </tools>
+</PdscDefaults>

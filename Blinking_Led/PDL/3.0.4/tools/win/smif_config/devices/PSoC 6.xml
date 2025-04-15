@@ -1,0 +1,5 @@
+<CyDevice>
+  <PartNumber>PSoC6</PartNumber>
+  <StartAddress>0x18000000</StartAddress>
+  <EndAddress>0x58000000</EndAddress>
+</CyDevice>

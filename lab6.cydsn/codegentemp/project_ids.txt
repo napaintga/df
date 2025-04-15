@@ -1,0 +1,6 @@
+C:\Users\PC\Desktop\Skif_5.cydsn\Skif_5.cyprj|a2e64b61-8d04-4734-b2e3-83e831b2a479
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a8ee64a4-f47c-45fe-b606-b2409cd51ff1
+C:\Users\PC\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|91cf65d9-04bd-47fb-9493-fb859eafbcd4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a3a505e8-108b-4769-9903-a0252475c09b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|59a30d95-897b-43f7-9056-2d9fe4d5b104
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7a87bbf7-46e7-4156-9b8e-2ff076c8e3f6

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_board>
+  <pass>
+    <loader>$PROJ_DIR$/flashloader/FlashCY8C6xxx_1024K.flash</loader>
+    <range>CODE 0x10000000 0x100FFFFF</range>
+  </pass>
+  <ignore>CODE 0x08000000 0x08047FFF</ignore>
+</flash_board>

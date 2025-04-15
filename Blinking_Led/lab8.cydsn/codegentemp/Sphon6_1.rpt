@@ -1,0 +1,5 @@
+Loading plugins phase: Elapsed time ==> 0s.343ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\PC\Desktop\Blinking_Led\Sphon6_1.cydsn\Sphon6_1.cyprj -d CY8C6347BZI-BLD53 -s C:\Users\PC\Desktop\Blinking_Led\Sphon6_1.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
+Error: fit.M0051: The given PDL path '' is invalid. Unable to find required PDSC file.

@@ -1,0 +1,6 @@
+C:\Users\PC\Desktop\Blinking_Led\Sphon6_1.cydsn\Sphon6_1.cyprj|7855e0da-2001-4be2-979b-2f631a0dae0e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|ab6b94a4-91a7-43bd-a655-9655f818e476
+C:\Users\PC\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|fb5e723e-93c5-43ea-ba07-4520d40493ce
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|78f33794-40ad-4323-8698-cb361ad72c7b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|3c021611-b4b6-4371-9cb4-4eb9b8b7564b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|f353f836-3cff-4e5b-9307-ae939212249b

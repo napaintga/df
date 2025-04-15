@@ -1,0 +1,109 @@
+#! armcc -E
+; The first line specifies a preprocessor command that the linker invokes
+; to pass a scatter file through a C preprocessor.
+
+;*******************************************************************************
+;* \file psoc6_user_app0_cm0plus.scat
+;* \version 1.0
+;*
+;* ARMCC linker file for the CM0+ core of the user_app0 project.
+;*
+;* \note This project does not use all sections defined in this linker file and
+;* therefore the following warnings will be seen during the build process: 
+;* L6314W (no section matches pattern)
+;* L6329W (pattern only matches removed unused sections)
+;* These warnings are suppressed in the user_app0 PSoC Creator project build
+;* settings with the linker option "--diag_suppress=L6314W,L6329W". You may
+;* alternatively delete the unused sections if they're not used in your project.
+;*
+;*******************************************************************************
+;* \copyright
+;* Copyright 2017-2018, Cypress Semiconductor Corporation.  All rights reserved.
+;* You may use this file only in accordance with the license, terms, conditions,
+;* disclaimers, and limitations in the end user license agreement accompanying
+;* the software package with which this file was provided.
+;******************************************************************************/
+
+; Flash
+#define FLASH_START             0x10020000
+#define FLASH_SIZE              0x10000
+
+; Emulated EEPROM flash
+#define EM_EEPROM_START         0x14000000
+#define EM_EEPROM_SIZE          0x8000
+
+; External memory
+#define XIP_START               0x18000000
+#define XIP_SIZE                0x8000000
+
+; RAM
+#define RAM_START               0x08010000
+#define RAM_SIZE                0x10000
+
+
+LR_FLASH FLASH_START FLASH_SIZE
+{
+    ;Cypress application header
+    .cy_app_header +0
+    {
+        * (.cy_app_header)
+    }
+
+    ; Vector table must be aligned to 256 Bytes
+    ER_FLASH_VECTORS +0 ALIGN 1024
+    {
+        * (RESET, +FIRST)
+    }
+
+    ER_FLASH_CODE +0 FIXED
+    {
+        * (InRoot$$Sections)
+        * (+RO)
+    }
+
+    ER_RAM_VECTORS RAM_START UNINIT
+    {
+        * (RESET_RAM, +FIRST)
+    }
+
+    ER_RAM_DATA +0
+    {
+        .ANY (+RW, +ZI)
+    }
+
+    ; Place variables in the section that should not be initialized during the
+    ; device startup.
+    ER_RAM_NOINIT_DATA +0 UNINIT
+    {
+        * (.noinit)
+    }
+}
+
+
+; Emulated EEPROM Flash
+LR_EM_EEPROM EM_EEPROM_START EM_EEPROM_SIZE
+{
+    .cy_em_eeprom +0
+    {
+        * (.cy_em_eeprom)
+    }
+}
+
+; Places the code in the Execute in Place (XIP) section. See the smif driver documentation for details.
+LR_EROM XIP_START XIP_SIZE
+{
+    .cy_xip +0
+    {
+        * (.cy_xip)
+    }
+}
+
+
+; The section is used for additional metadata (silicon revision, Silicon/JTAG ID, etc.) storage.
+CYMETA 0x90500000
+{
+    .cymeta +0 { * (.cymeta) }
+}
+
+
+/* [] END OF FILE */

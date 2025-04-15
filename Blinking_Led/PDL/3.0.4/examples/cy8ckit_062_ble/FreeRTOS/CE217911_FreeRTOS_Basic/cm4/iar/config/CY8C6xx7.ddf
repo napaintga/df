@@ -1,0 +1,26 @@
+;; Memory information ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 
+;; Used to define address zones within the ARM address space (Memory). 
+;;
+;;   Name      may be almost anything
+;;   AdrSpace  must be Memory
+;;   StartAdr  start of memory block
+;;   EndAdr    end of memory block
+;;   AccType   type of access, read-only (R), read-write (RW) or SFR (W)
+
+[Memory]
+;;          Name             AdrSpace    StartAdr   EndAdr      AccType
+Memory0  =  ROM               Memory      0x00000000 0x0001FFFF  W
+Memory1  =  SRAM0             Memory      0x08000000 0x08047FFF  RW
+Memory2  =  FLASH             Memory      0x10000000 0x100FFFFF  R
+Memory3  =  WFLASH            Memory      0x14000000 0x14007FFF  W
+Memory4  =  SFLASH            Memory      0x16000000 0x16007FFF  W
+Memory5  =  XIP               Memory      0x18000000 0x1FFFFFFF  W
+Memory6  =  MMIO              Memory      0x40000000 0x43FFFFFF  W
+Memory7  =  SYSTEM            Memory      0xE0000000 0xFFFFFFFF  W
+;
+TrustedRanges = true
+UseSfrFilter = true
+;
+[SfrInclude]
+File = ../../../../../../../devices/psoc6/psoc63/psoc63.svd

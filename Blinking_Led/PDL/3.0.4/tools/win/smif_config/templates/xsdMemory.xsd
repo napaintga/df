@@ -1,0 +1,40 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CyMemoryConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="PartNumber"/>
+        <xs:element type="xs:string" name="Description"/>
+        <xs:element type="xs:string" name="NumberOfAddress"/>
+        <xs:element type="xs:string" name="SizeOfMemory"/>
+        <xs:element type="xs:string" name="EraseBlockSize"/>
+        <xs:element type="xs:string" name="ProgramPageSize"/>
+        <xs:element type="xs:string" name="StatusRegisterBusyMask"/>
+        <xs:element type="xs:string" name="StatusRegisterQuadEnableMask"/>
+        <xs:element type="xs:int" name="EraseTime"/>
+        <xs:element type="xs:int" name="ChipEraseTime"/>
+        <xs:element type="xs:int" name="ProgramTime"/>
+        <xs:element name="Commands">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="CommandDescription"/>
+                    <xs:element type="xs:string" name="CommandName"/>
+                    <xs:element type="xs:string" name="CommandNumber"/>
+                    <xs:element type="xs:string" name="CmdWidth"/>
+                    <xs:element type="xs:string" name="AddrWidth"/>
+                    <xs:element type="xs:string" name="Mode"/>
+                    <xs:element type="xs:string" name="ModeWidth"/>
+                    <xs:element type="xs:byte" name="DummyCycles"/>
+                    <xs:element type="xs:string" name="DataWidth"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

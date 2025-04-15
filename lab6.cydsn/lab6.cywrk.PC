@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="lab6">
+<ExpandedNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\TopDesign</v>
+<v>lab6\lab6\lab6.cydwr</v>
+<v>lab6\lab6\lab6.cydwr\Pins</v>
+<v>lab6\lab6\lab6.cydwr\Analog</v>
+<v>lab6\lab6\lab6.cydwr\DMA</v>
+<v>lab6\lab6\lab6.cydwr\Clocks</v>
+<v>lab6\lab6\lab6.cydwr\Interrupts</v>
+<v>lab6\lab6\lab6.cydwr\System</v>
+<v>lab6\lab6\lab6.cydwr\Directives</v>
+<v>lab6\lab6\lab6.cydwr\Flash Security</v>
+<v>lab6\lab6\Header Files</v>
+<v>lab6\lab6\Header Files\BLEApplications.h</v>
+<v>lab6\lab6\Header Files\main.h</v>
+<v>lab6\lab6\Source Files</v>
+<v>lab6\lab6\Source Files\BLEApplications.c</v>
+<v>lab6\lab6\Source Files\main.c</v>
+<v>lab6\lab6\Generated_Source</v>
+<v>lab6\lab6\Generated_Source\PSoC4</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\TopDesign</v>
+<v>lab6\lab6\lab6.cydwr</v>
+<v>lab6\lab6\lab6.cydwr\Pins</v>
+<v>lab6\lab6\lab6.cydwr\Analog</v>
+<v>lab6\lab6\lab6.cydwr\DMA</v>
+<v>lab6\lab6\lab6.cydwr\Clocks</v>
+<v>lab6\lab6\lab6.cydwr\Interrupts</v>
+<v>lab6\lab6\lab6.cydwr\System</v>
+<v>lab6\lab6\lab6.cydwr\Directives</v>
+<v>lab6\lab6\lab6.cydwr\Flash Security</v>
+<v>lab6\lab6\Header Files</v>
+<v>lab6\lab6\Header Files\BLEApplications.h</v>
+<v>lab6\lab6\Header Files\main.h</v>
+<v>lab6\lab6\Source Files</v>
+<v>lab6\lab6\Source Files\BLEApplications.c</v>
+<v>lab6\lab6\Source Files\main.c</v>
+<v>lab6\lab6\Generated_Source</v>
+<v>lab6\lab6\Generated_Source\PSoC4</v>
+<v>lab6\lab6\Generated_Source\PSoC4\BLE</v>
+<v>lab6\lab6\Generated_Source\PSoC4\BLE_bless_isr</v>
+<v>lab6\lab6\Generated_Source\PSoC4\CapSense</v>
+<v>lab6\lab6\Generated_Source\PSoC4\CapSense_SampleClk</v>
+<v>lab6\lab6\Generated_Source\PSoC4\CapSense_SenseClk</v>
+<v>lab6\lab6\Generated_Source\PSoC4\CapSense_Sns</v>
+<v>lab6\lab6\Generated_Source\PSoC4\cy_boot</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\TopDesign</v>
+<v>lab6\lab6\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\TopDesign</v>
+<v>lab6\lab6\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\CortexM0</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_bless_isr.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_custom.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_eventHandler.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_gatt.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_INT.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_PVT.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLEApplications.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_PM.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SampleClk.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SenseClk.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SMS.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Sns.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Sns_PM.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CyDMA.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\Status_LED.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\Status_LED_PM.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\lab6.elf</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\lab6.hex</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\lab6.map</v>
+<v>lab6\lab6\lab6.gpdsc</v>
+<v>lab6\lab6\lab6.rpt</v>
+<v>lab6\lab6\lab6_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\CortexM0</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_bless_isr.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_custom.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_eventHandler.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_gatt.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_INT.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_PVT.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\BLEApplications.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_PM.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SampleClk.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SenseClk.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SMS.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Sns.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Sns_PM.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>lab6\lab6\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\PSoC 4 Architecture TRM</v>
+<v>lab6\lab6\PSoC 4200 BLE Family Datasheet</v>
+<v>lab6\lab6\System Reference Guides</v>
+<v>lab6\lab6\System Reference Guides\cy_boot_v5_50</v>
+<v>lab6\lab6\System Reference Guides\cy_dmac_v1_10</v>
+<v>lab6\lab6\System Reference Guides\cy_lfclk_v1_10</v>
+<v>lab6\lab6\BLE_v3_30.pdf</v>
+<v>lab6\lab6\CapSense_CSD_P4_v2_60.pdf</v>
+<v>lab6\lab6\cy_pins_v2_20.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>lab6</v>
+<v>lab6\lab6</v>
+<v>lab6\lab6\PSoC 4 Architecture TRM</v>
+<v>lab6\lab6\PSoC 4200 BLE Family Datasheet</v>
+<v>lab6\lab6\System Reference Guides</v>
+<v>lab6\lab6\System Reference Guides\cy_boot_v5_50</v>
+<v>lab6\lab6\System Reference Guides\cy_dmac_v1_10</v>
+<v>lab6\lab6\System Reference Guides\cy_lfclk_v1_10</v>
+<v>lab6\lab6\BLE_v3_30.pdf</v>
+<v>lab6\lab6\CapSense_CSD_P4_v2_60.pdf</v>
+<v>lab6\lab6\cy_pins_v2_20.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\TopDesign\TopDesign.cysch" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="739, 524" SelectedTabbedMdiWindow="6919dba1-daff-469a-b129-dff0c7f07bdb"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="16229ebe-7469-4b38-aa53-bca76e55c045" /><DocumentWindow Key="C:\Users\PC\Desktop\lab6.cydsn\TopDesign\TopDesign.cysch" Guid="6919dba1-daff-469a-b129-dff0c7f07bdb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
