@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_board>
+  
+  <!-- Programming steps -->
+  <pass> <!-- Flash Main Region -->
+    <loader>$PROJ_DIR$\..\..\..\common\iar\flashloader\FlashCY8C6xxx_512K.flash</loader>
+    <range>CODE 0x10000000 0x1007FFFF</range>
+  </pass>  
+  <pass> <!-- Flash Work Region -->
+    <loader>$PROJ_DIR$\..\..\..\common\iar\flashloader\FlashCY8C6xxx_WFLASH.flash</loader>
+    <range>CODE 0x14000000 0x14007FFF</range>
+  </pass>    
+  <pass> <!-- SFLASH: User Data -->
+    <loader>$PROJ_DIR$\..\..\..\common\iar\flashloader\FlashCY8C6xxx_SFLASH.flash</loader>
+    <range>CODE 0x16000800 0x16000FFF</range>
+  </pass>  
+  <pass> <!-- SFLASH: NAR -->
+    <loader>$PROJ_DIR$\..\..\..\common\iar\flashloader\FlashCY8C6xxx_SFLASH.flash</loader>
+    <range>CODE 0x16001A00 0x16001BFF</range>
+  </pass>  
+  <pass> <!-- SFLASH: Public Key -->
+    <loader>$PROJ_DIR$\..\..\..\common\iar\flashloader\FlashCY8C6xxx_SFLASH.flash</loader>
+    <range>CODE 0x16005A00 0x160065FF</range>
+  </pass>    
+  <pass> <!-- SFLASH: Public TOC2 -->
+    <loader>$PROJ_DIR$\..\..\..\common\iar\flashloader\FlashCY8C6xxx_SFLASH.flash</loader>
+    <range>CODE 0x16007C00 0x16007FFF</range>
+  </pass>  
+
+  <!-- Exclude regions -->
+  <ignore>CODE 0x08000000 0x08047FFF</ignore> <!-- Exclude SRAM Region -->
+  <ignore>CODE 0x16000000 0x160007FF</ignore> <!-- Exclude SFLASH [SFLASH Start - User Data Start] -->
+  <ignore>CODE 0x16001000 0x160019FF</ignore> <!-- Exclude SFLASH [User Data End - NAR Start] -->
+  <ignore>CODE 0x16001C00 0x160059FF</ignore> <!-- Exclude SFLASH [NAR End - Public Key Start] -->
+  <ignore>CODE 0x16006600 0x16007BFF</ignore> <!-- Exclude SFLASH [Public Key End - TOC2 Start] -->
+  <ignore>CODE 0x90300000 0x903FFFFF</ignore> <!-- Exclude Cy Checksum Region -->
+  <ignore>CODE 0x90500000 0x905FFFFF</ignore> <!-- Exclude Cy Metadata Region -->
+  <ignore>CODE 0x90700000 0x907FFFFF</ignore> <!-- Exclude eFuse Region -->
+
+</flash_board>

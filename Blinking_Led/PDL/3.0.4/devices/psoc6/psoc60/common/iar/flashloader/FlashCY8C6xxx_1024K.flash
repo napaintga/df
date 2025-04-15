@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_device>
+  <exe>$PROJ_DIR$\..\..\..\common\iar\flashloader\FlashCY8C6xxx.out</exe>
+  <flash_base>0x10000000</flash_base>
+  <page>512</page>	
+  <block>2048 0x200</block>
+  <aggregate>1</aggregate>
+  <filler>0</filler>
+</flash_device>

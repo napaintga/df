@@ -1,0 +1,2498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package schemaVersion="1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+    <vendor>Cypress</vendor>
+    <name>PDL</name>
+    <description>Peripheral Driver Library for PSoC 6 devices</description>
+    <url>http://www.cypress.com/documentation/software-and-drivers/peripheral-driver-library-pdl</url>
+    <license>PDL_License.txt</license>
+    <supportContact>http://www.cypress.com/go/support</supportContact>
+    <releases>
+        <release version="3.0.4+build.57" date="2018-08-03">
+           Added devices.
+           Updated Drivers:     SMIF v1.11
+           Update Middleware:   BLE 2.20
+           New Middleware:      emWin 5.46
+        </release>
+        <release version="3.0.3" date="2018-05-22">
+           Updated Drivers:     SysPM 2.21, Flash 3.11, SYSCLK 1.11.
+        </release>
+        <release version="3.0.2" date="2018-04-12">
+           Updated Drivers:     SysPM 2.20, IPC 1.20, Flash 3.10.
+           Update Middleware:   BLE 2.10, Bootloader SDK 2.20.
+           Updated RTOS:        FreeRTOS 10.0.1.
+           Update Security:     Cypress Secure Image 1.10.
+        </release>
+        <release version="3.0.1" date="2017-11-08">
+           Updated device header files to support rev. *B for PSoC 6 family of devices.
+
+           Updated Drivers:     CRYPTO 2.0, DMA 2.0, FLASH 3.0, GPIO 1.10, I2S 2.0, IPC 1.10, LPCOMP 1.10, MCWDT 1.10,
+                                PDM_PCM 2.10, PROT 1.10, RTC 2.10, SCB 2.10, SMIF 1.10, STARTUP 2.10, SYSCLK 1.10,
+                                SYSINT 1.10, SYSLIB 2.0, SYSPM 2.10, TRIGMUX 1.10.
+           New Drivers:         CTB 1.0, CTDAC 1.0, EFUSE 1.0, LVD 1.0, SAR 1.10, SYSANALOG 1.0.
+           Updated Middleware:  BLE 2.0, Bootloader SDK 2.10.
+           New Middleware:      EMEEPROM 1.0.
+           Updated Utilities:   Retarget I/O 1.10.
+           Updated Tools:       SMIF Configuration Tool 1.0 (Production).
+           New Security:        Cypress Secure Image 1.0.
+        </release>
+        <release version="3.0.0" date="2017-02-23">
+           Initial Cypress PDL release for PSoC 6 family of devices.
+        </release>
+    </releases>
+
+    <keywords>
+        <!-- keywords for indexing -->
+        <keyword>Cypress</keyword>
+        <keyword>PDL</keyword>
+        <keyword>Peripheral Driver Library</keyword>
+        <keyword>PSoC 6</keyword>
+    </keywords>
+
+    <taxonomy>
+        <description Cclass="PDL" doc="doc/pdl_api_reference_manual.html">Peripheral Driver Library (PDL)</description>
+        <description Cclass="bootloader" doc="doc/bootloader_sdk_api_reference_manual.html">Bootloader SDK</description>
+        <description Cclass="utilities" doc="doc/pdl_api_reference_manual/html/page_utilities.html">Various Utility Files</description>
+        <description Cclass="RTOS" Cgroup="FreeRTOS" doc="http://www.freertos.org">FreeRTOS Real Time Operating System</description>
+        <description Cclass="Graphics" Cgroup="emWin" doc="doc/UM03001_emWin5.pdf">emWin graphical user interface library</description>
+    </taxonomy>
+
+    <devices>
+        <family Dfamily="PSoC 60" Dvendor="Cypress:19">
+            <description>
+PSoC 60 (Value Line): Cortex-M4 MCU series with integrated analog and digital peripherals.
+            </description>
+                    <memory    name="ROM"        start="0x00000000" size="0x20000" />
+                    <memory    name="EM_EEPROM"  start="0x14000000" size="0x8000" />
+                    <memory    name="XIP"        start="0x18000000" size="0x8000000" />
+                    <memory    name="SFLASH"     start="0x16000000" size="0x8000" />
+                    <memory    name="EFUSE"      start="0x402C0800" size="0x200" />
+            <device Dname="CY8C6036BZI-F04">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc60/include/cy8c6036bzi_f04.h" define="CY8C6036BZI_F04" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6016BZI-F04">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc60/include/cy8c6016bzi_f04.h" define="CY8C6016BZI_F04" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+        </family>
+        <family Dfamily="PSoC 61" Dvendor="Cypress:19">
+            <description>
+PSoC 61 (Programmable Line): Cortex-M4 MCU series with programmable digital and analog peripherals, CapSense and crypto security.
+            </description>
+                    <memory    name="ROM"        start="0x00000000" size="0x20000" />
+                    <memory    name="EM_EEPROM"  start="0x14000000" size="0x8000" />
+                    <memory    name="XIP"        start="0x18000000" size="0x8000000" />
+                    <memory    name="SFLASH"     start="0x16000000" size="0x8000" />
+                    <memory    name="EFUSE"      start="0x402C0800" size="0x200" />
+            <device Dname="CY8C6116BZI-F54">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6116bzi_f54.h" define="CY8C6116BZI_F54" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6136BZI-F14">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6136bzi_f14.h" define="CY8C6136BZI_F14" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6136BZI-F34">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6136bzi_f34.h" define="CY8C6136BZI_F34" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6137BZI-F14">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6137bzi_f14.h" define="CY8C6137BZI_F14" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6137BZI-F34">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6137bzi_f34.h" define="CY8C6137BZI_F34" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6137BZI-F54">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6137bzi_f54.h" define="CY8C6137BZI_F54" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6117BZI-F34">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6117bzi_f34.h" define="CY8C6117BZI_F34" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6137FDI-F02">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6137fdi_f02.h" define="CY8C6137FDI_F02" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6117FDI-F02">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6117fdi_f02.h" define="CY8C6117FDI_F02" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6136FDI-F42">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6136fdi_f42.h" define="CY8C6136FDI_F42" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6136FTI-F42">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc61/include/cy8c6136fti_f42.h" define="CY8C6136FTI_F42" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+        </family>
+        <family Dfamily="PSoC 62" Dvendor="Cypress:19">
+            <description>
+PSoC 62 (Performance Line): Dual-core Cortex-M4/M0+ MCU series with programmable digital and analog peripherals, advanced graphics, CapSense, crypto and secure boot security.
+            </description>
+                    <memory    name="ROM"        start="0x00000000" size="0x20000" />
+                    <memory    name="EM_EEPROM"  start="0x14000000" size="0x8000" />
+                    <memory    name="XIP"        start="0x18000000" size="0x8000000" />
+                    <memory    name="SFLASH"     start="0x16000000" size="0x8000" />
+                    <memory    name="EFUSE"      start="0x402C0800" size="0x200" />
+            <device Dname="CY8C6246BZI-D04">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6246bzi_d04.h" define="CY8C6246BZI_D04" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6247BZI-D44">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247bzi_d44.h" define="CY8C6247BZI_D44" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247BZI-D34">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247bzi_d34.h" define="CY8C6247BZI_D34" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247BZI-D54">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247bzi_d54.h" define="CY8C6247BZI_D54" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247FDI-D02">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247fdi_d02.h" define="CY8C6247FDI_D02" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247FDI-D32">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247fdi_d32.h" define="CY8C6247FDI_D32" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247FDI-D52">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247fdi_d52.h" define="CY8C6247FDI_D52" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247FTI-D52">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247fti_d52.h" define="CY8C6247FTI_D52" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247BZI-AUD54">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247bzi_aud54.h" define="CY8C6247BZI_AUD54" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6247BFI-D54">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc62/include/cy8c6247bfi_d54.h" define="CY8C6247BFI_D54" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+        </family>
+        <family Dfamily="PSoC 63" Dvendor="Cypress:19">
+            <description>
+PSoC 63 (Connectivity Line): Dual-core Cortex-M4/M0+ MCU series with programmable digital and analog peripherals, advanced graphics, CapSense, crypto and secure boot security, with integrated high-speed wired and wireless connectivity.
+            </description>
+                    <memory    name="ROM"        start="0x00000000" size="0x20000" />
+                    <memory    name="EM_EEPROM"  start="0x14000000" size="0x8000" />
+                    <memory    name="XIP"        start="0x18000000" size="0x8000000" />
+                    <memory    name="SFLASH"     start="0x16000000" size="0x8000" />
+                    <memory    name="EFUSE"      start="0x402C0800" size="0x200" />
+            <device Dname="CY8C6336BZI-BLF03">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6336bzi_blf03.h" define="CY8C6336BZI_BLF03" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6316BZI-BLF03">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6316bzi_blf03.h" define="CY8C6316BZI_BLF03" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6316BZI-BLF53">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6316bzi_blf53.h" define="CY8C6316BZI_BLF53" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6336BZI-BLD13">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6336bzi_bld13.h" define="CY8C6336BZI_BLD13" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6347BZI-BLD43">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bld43.h" define="CY8C6347BZI_BLD43" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347BZI-BLD33">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bld33.h" define="CY8C6347BZI_BLD33" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347BZI-BLD53">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bld53.h" define="CY8C6347BZI_BLD53" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347FMI-BLD13">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347fmi_bld13.h" define="CY8C6347FMI_BLD13" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347FMI-BLD43">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347fmi_bld43.h" define="CY8C6347FMI_BLD43" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347FMI-BLD33">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347fmi_bld33.h" define="CY8C6347FMI_BLD33" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347FMI-BLD53">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347fmi_bld53.h" define="CY8C6347FMI_BLD53" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C637BZI-MD76">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c637bzi_md76.h" define="CY8C637BZI_MD76" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C637BZI-BLD74">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c637bzi_bld74.h" define="CY8C637BZI_BLD74" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C637FMI-BLD73">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c637fmi_bld73.h" define="CY8C637FMI_BLD73" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C68237BZ-BLE">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c68237bz_ble.h" define="CY8C68237BZ_BLE" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C68237FM-BLE">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c68237fm_ble.h" define="CY8C68237FM_BLE" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6336BZI-BUD13">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6336bzi_bud13.h" define="CY8C6336BZI_BUD13" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6347BZI-BUD43">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bud43.h" define="CY8C6347BZI_BUD43" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347BZI-BUD33">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bud33.h" define="CY8C6347BZI_BUD33" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347BZI-BUD53">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bud53.h" define="CY8C6347BZI_BUD53" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6337BZI-BLF13">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6337bzi_blf13.h" define="CY8C6337BZI_BLF13" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6336BZI-BLF04">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6336bzi_blf04.h" define="CY8C6336BZI_BLF04" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6316BZI-BLF04">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6316bzi_blf04.h" define="CY8C6316BZI_BLF04" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6316BZI-BLF54">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6316bzi_blf54.h" define="CY8C6316BZI_BLF54" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6336BZI-BLD14">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6336bzi_bld14.h" define="CY8C6336BZI_BLD14" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x20000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x80000" />
+            </device>
+            <device Dname="CY8C6347BZI-BLD44">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bld44.h" define="CY8C6347BZI_BLD44" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347BZI-BLD34">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bld34.h" define="CY8C6347BZI_BLD34" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CY8C6347BZI-BLD54">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cy8c6347bzi_bld54.h" define="CY8C6347BZI_BLD54" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+            <device Dname="CYBLE-416045-02">
+                    <processor Pname="CortexM4"  Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="1" Dendian="Little-endian" />
+                    <processor Pname="CortexM0p" Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="0" Dmpu="1" Dendian="Little-endian" />
+                    <compile   header="devices/psoc6/psoc63/include/cyble_416045_02.h" define="CYBLE_416045_02" />
+                    <memory    name="SRAM0"      start="0x08000000" size="0x48000" />
+                    <memory    name="FLASH"      start="0x10000000" size="0x100000" />
+            </device>
+        </family>
+    </devices>
+
+    <conditions>
+        <!-- Compilers -->
+        <condition id="GCC">
+            <require Tcompiler="GCC" />
+        </condition>
+        <condition id="IAR">
+            <require Tcompiler="IAR" />
+        </condition>
+        <condition id="ARMCC">
+            <require Tcompiler="ARMCC" />
+        </condition>
+        <condition id="ARMCC IAR">
+            <accept Tcompiler="ARMCC" />
+            <accept Tcompiler="IAR" />
+        </condition>
+
+        <!-- Generic processor and device architecture conditions -->
+        <condition id="CM0+">
+            <require Dcore="Cortex-M0+" />
+        </condition>
+        <condition id="CM4">
+            <require Dcore="Cortex-M4" />
+        </condition>
+        <condition id="CM4 FPU">
+            <require Dcore="Cortex-M4" Dfpu="FPU" />
+        </condition>
+        <condition id="CM4 NO_FPU">
+            <require Dcore="Cortex-M4" Dfpu="NO_FPU" />
+        </condition>
+        <condition id="Cortex-M Device">
+            <accept Dcore="Cortex-M0+" />
+            <accept Dcore="Cortex-M4" />
+        </condition>
+        <condition id="CM4 Single Core">
+            <accept Dname = "CY8C6036BZI-F04" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6016BZI-F04" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6116BZI-F54" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6136BZI-F14" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6136BZI-F34" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6137BZI-F14" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6137BZI-F34" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6137BZI-F54" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6117BZI-F34" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6137FDI-F02" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6117FDI-F02" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6136FDI-F42" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6136FTI-F42" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6336BZI-BLF03" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6316BZI-BLF03" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6316BZI-BLF53" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6337BZI-BLF13" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6336BZI-BLF04" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6316BZI-BLF04" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6316BZI-BLF54" Dvendor = "Cypress:19" />
+        </condition>
+
+        <condition id="CM0+ CM4 Dual Core">
+            <accept Dname = "CY8C6246BZI-D04" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247BZI-D44" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247BZI-D34" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247BZI-D54" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247FDI-D02" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247FDI-D32" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247FDI-D52" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247FTI-D52" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247BZI-AUD54" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6247BFI-D54" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6336BZI-BLD13" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BLD43" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BLD33" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BLD53" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347FMI-BLD13" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347FMI-BLD43" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347FMI-BLD33" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347FMI-BLD53" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C637BZI-MD76" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C637BZI-BLD74" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C637FMI-BLD73" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C68237BZ-BLE" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C68237FM-BLE" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6336BZI-BUD13" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BUD43" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BUD33" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BUD53" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6336BZI-BLD14" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BLD44" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BLD34" Dvendor = "Cypress:19" />
+            <accept Dname = "CY8C6347BZI-BLD54" Dvendor = "Cypress:19" />
+            <accept Dname = "CYBLE-416045-02" Dvendor = "Cypress:19" />
+        </condition>
+
+
+        <!-- PDL and component conditions -->
+        <condition id="PDL Device">
+            <require Dvendor="Cypress:19" />
+            <require Cclass="Device" Cgroup="Startup" />
+            <require Cclass="CMSIS" Cgroup="CORE" />
+        </condition>
+        <condition id="PDL Common">
+            <require condition="PDL Device" />
+            <require Cclass="PDL" Cgroup="syslib" />
+            <require Cclass="PDL" Cgroup="ipc" />
+            <require Cclass="PDL" Cgroup="sysint" />
+            <require Cclass="PDL" Cgroup="syspm" />
+            <require Cclass="PDL" Cgroup="prot" />
+        </condition>
+        <condition id="BLE Dependency">
+            <require condition="PDL Common" />
+            <require Cclass="PDL" Cgroup="flash" />
+            <require Cclass="PDL" Cgroup="sysclk" />
+        </condition>
+        <condition id="Em_EEPROM Dependency">
+            <require condition="PDL Common" />
+            <require Cclass="PDL" Cgroup="flash" />
+        </condition>
+
+        <condition id="BLE Dependency CM0+">
+           <require condition="BLE Dependency" />
+           <require Dcore="Cortex-M0+" />
+        </condition>
+
+        <condition id="BLE Dependency CM4">
+           <require condition="BLE Dependency" />
+           <require Dcore="Cortex-M4" />
+        </condition>
+
+        <condition id="BLE Dependency Dual">
+           <require condition="BLE Dependency" />
+           <require condition="CM0+ CM4 Dual Core" />
+        </condition>
+
+        <condition id="No BLE Middleware">
+           <deny Cclass="PDL" Cgroup="ble" Csub="Core" />
+        </condition>
+
+        <condition id="Bootloader SDK Core Dependency">
+            <require condition="PDL Common" />
+            <require Cclass="PDL" Cgroup="flash" />
+        </condition>
+        <condition id="Bootloader SDK Transport UART/I2C/SPI Dependency">
+            <require condition="Bootloader SDK Core Dependency" />
+            <require Cclass="PDL" Cgroup="scb" />
+        </condition>
+        <condition id="Bootloader SDK Transport BLE Dependency">
+            <require condition="Bootloader SDK Core Dependency" />
+            <require Cclass="PDL" Cgroup="ble" Csub="Core" />
+        </condition>
+
+        <condition id="System Analog Reference Block Dependency">
+            <require condition="PDL Common" />
+            <require Cclass="PDL" Cgroup="sysanalog"/>
+        </condition>
+
+        <!-- Processor and compiler conditions -->
+        <condition id="CM0+ GCC">
+            <require condition="CM0+" />
+            <require condition="GCC" />
+        </condition>
+        <condition id="CM0+ IAR">
+            <require condition="CM0+" />
+            <require condition="IAR" />
+        </condition>
+        <condition id="CM0+ ARMCC">
+            <require condition="CM0+" />
+            <require condition="ARMCC" />
+        </condition>
+        <condition id="CM0+ ARMCC IAR">
+            <accept condition="CM0+ ARMCC" />
+            <accept condition="CM0+ IAR" />
+        </condition>
+		<condition id="CM0+ GCC IAR">
+            <accept condition="CM0+ GCC" />
+            <accept condition="CM0+ IAR" />
+        </condition>
+
+        <condition id="CM4 GCC">
+            <require condition="CM4" />
+            <require condition="GCC" />
+        </condition>
+        <condition id="CM4 FPU GCC">
+            <require condition="CM4 FPU" />
+            <require condition="GCC" />
+        </condition>
+        <condition id="CM4 IAR">
+            <require condition="CM4" />
+            <require condition="IAR" />
+        </condition>
+        <condition id="CM4 ARMCC">
+            <require condition="CM4" />
+            <require condition="ARMCC" />
+        </condition>
+        <condition id="CM4 ARMCC IAR">
+            <accept condition="CM4 ARMCC" />
+            <accept condition="CM4 IAR" />
+        </condition>
+		<condition id="CM4 GCC IAR">
+            <accept condition="CM4 GCC" />
+            <accept condition="CM4 IAR" />
+        </condition>
+        <condition id="CM0+ CM4 NO_FPU">
+            <accept condition="CM0+" />
+            <accept condition="CM4 NO_FPU" />
+        </condition>
+        <condition id="CM0+ CM4 NO_FPU GCC">
+            <require condition="CM0+ CM4 NO_FPU" />
+            <require condition="GCC" />
+        </condition>
+
+        <condition id="CM4 Single Core ARMCC">
+            <require condition="CM4 Single Core" />
+            <require condition="ARMCC" />
+        </condition>
+        <condition id="CM4 Single Core IAR">
+            <require condition="CM4 Single Core" />
+            <require condition="IAR" />
+        </condition>
+        <condition id="CM4 Single Core GCC">
+            <require condition="CM4 Single Core" />
+            <require condition="GCC" />
+        </condition>
+
+        <condition id="CM0+ CM4 Dual Core ARMCC">
+            <require condition="CM0+ CM4 Dual Core" />
+            <require condition="ARMCC" />
+        </condition>
+        <condition id="CM0+ CM4 Dual Core IAR">
+            <require condition="CM0+ CM4 Dual Core" />
+            <require condition="IAR" />
+        </condition>
+        <condition id="CM0+ CM4 Dual Core GCC">
+            <require condition="CM0+ CM4 Dual Core" />
+            <require condition="GCC" />
+        </condition>
+
+        <!-- Device conditions -->
+        <condition id="PSOC60">
+            <accept Dname="CY8C6036BZI-F04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6016BZI-F04" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC61">
+            <accept Dname="CY8C6116BZI-F54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136BZI-F14" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136BZI-F34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6137BZI-F14" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6137BZI-F34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6137BZI-F54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6117BZI-F34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6137FDI-F02" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6117FDI-F02" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136FDI-F42" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136FTI-F42" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC62">
+            <accept Dname="CY8C6246BZI-D04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-D44" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-D34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-D54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247FDI-D02" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247FDI-D32" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247FDI-D52" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247FTI-D52" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-AUD54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BFI-D54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC63">
+            <accept Dname="CY8C6336BZI-BLF03" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF03" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF53" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6336BZI-BLD13" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD43" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD33" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD53" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347FMI-BLD13" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347FMI-BLD43" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347FMI-BLD33" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347FMI-BLD53" Dvendor="Cypress:19" />
+            <accept Dname="CY8C637BZI-MD76" Dvendor="Cypress:19" />
+            <accept Dname="CY8C637BZI-BLD74" Dvendor="Cypress:19" />
+            <accept Dname="CY8C637FMI-BLD73" Dvendor="Cypress:19" />
+            <accept Dname="CY8C68237BZ-BLE" Dvendor="Cypress:19" />
+            <accept Dname="CY8C68237FM-BLE" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6336BZI-BUD13" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BUD43" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BUD33" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BUD53" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6337BZI-BLF13" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6336BZI-BLF04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6336BZI-BLD14" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD44" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD54" Dvendor="Cypress:19" />
+            <accept Dname="CYBLE-416045-02" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6036BZI-F04">
+            <require Dname="CY8C6036BZI-F04" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6016BZI-F04">
+            <require Dname="CY8C6016BZI-F04" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6116BZI-F54">
+            <require Dname="CY8C6116BZI-F54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6136BZI-F14">
+            <require Dname="CY8C6136BZI-F14" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6136BZI-F34">
+            <require Dname="CY8C6136BZI-F34" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6137BZI-F14">
+            <require Dname="CY8C6137BZI-F14" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6137BZI-F34">
+            <require Dname="CY8C6137BZI-F34" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6137BZI-F54">
+            <require Dname="CY8C6137BZI-F54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6117BZI-F34">
+            <require Dname="CY8C6117BZI-F34" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6137FDI-F02">
+            <require Dname="CY8C6137FDI-F02" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6117FDI-F02">
+            <require Dname="CY8C6117FDI-F02" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6136FDI-F42">
+            <require Dname="CY8C6136FDI-F42" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6136FTI-F42">
+            <require Dname="CY8C6136FTI-F42" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6246BZI-D04">
+            <require Dname="CY8C6246BZI-D04" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247BZI-D44">
+            <require Dname="CY8C6247BZI-D44" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247BZI-D34">
+            <require Dname="CY8C6247BZI-D34" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247BZI-D54">
+            <require Dname="CY8C6247BZI-D54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247FDI-D02">
+            <require Dname="CY8C6247FDI-D02" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247FDI-D32">
+            <require Dname="CY8C6247FDI-D32" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247FDI-D52">
+            <require Dname="CY8C6247FDI-D52" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247FTI-D52">
+            <require Dname="CY8C6247FTI-D52" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247BZI-AUD54">
+            <require Dname="CY8C6247BZI-AUD54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6247BFI-D54">
+            <require Dname="CY8C6247BFI-D54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6336BZI-BLF03">
+            <require Dname="CY8C6336BZI-BLF03" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6316BZI-BLF03">
+            <require Dname="CY8C6316BZI-BLF03" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6316BZI-BLF53">
+            <require Dname="CY8C6316BZI-BLF53" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6336BZI-BLD13">
+            <require Dname="CY8C6336BZI-BLD13" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BLD43">
+            <require Dname="CY8C6347BZI-BLD43" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BLD33">
+            <require Dname="CY8C6347BZI-BLD33" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BLD53">
+            <require Dname="CY8C6347BZI-BLD53" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347FMI-BLD13">
+            <require Dname="CY8C6347FMI-BLD13" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347FMI-BLD43">
+            <require Dname="CY8C6347FMI-BLD43" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347FMI-BLD33">
+            <require Dname="CY8C6347FMI-BLD33" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347FMI-BLD53">
+            <require Dname="CY8C6347FMI-BLD53" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C637BZI-MD76">
+            <require Dname="CY8C637BZI-MD76" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C637BZI-BLD74">
+            <require Dname="CY8C637BZI-BLD74" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C637FMI-BLD73">
+            <require Dname="CY8C637FMI-BLD73" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C68237BZ-BLE">
+            <require Dname="CY8C68237BZ-BLE" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C68237FM-BLE">
+            <require Dname="CY8C68237FM-BLE" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6336BZI-BUD13">
+            <require Dname="CY8C6336BZI-BUD13" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BUD43">
+            <require Dname="CY8C6347BZI-BUD43" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BUD33">
+            <require Dname="CY8C6347BZI-BUD33" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BUD53">
+            <require Dname="CY8C6347BZI-BUD53" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6337BZI-BLF13">
+            <require Dname="CY8C6337BZI-BLF13" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6336BZI-BLF04">
+            <require Dname="CY8C6336BZI-BLF04" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6316BZI-BLF04">
+            <require Dname="CY8C6316BZI-BLF04" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6316BZI-BLF54">
+            <require Dname="CY8C6316BZI-BLF54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6336BZI-BLD14">
+            <require Dname="CY8C6336BZI-BLD14" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BLD44">
+            <require Dname="CY8C6347BZI-BLD44" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BLD34">
+            <require Dname="CY8C6347BZI-BLD34" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CY8C6347BZI-BLD54">
+            <require Dname="CY8C6347BZI-BLD54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="CYBLE-416045-02">
+            <require Dname="CYBLE-416045-02" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC60-124-BGA">
+            <accept Dname="CY8C6036BZI-F04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6016BZI-F04" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC61-124-BGA">
+            <accept Dname="CY8C6116BZI-F54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136BZI-F14" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136BZI-F34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6137BZI-F14" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6137BZI-F34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6137BZI-F54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6117BZI-F34" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC61-80-WLCSP">
+            <accept Dname="CY8C6137FDI-F02" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6117FDI-F02" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136FDI-F42" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6136FTI-F42" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC62-124-BGA">
+            <accept Dname="CY8C6246BZI-D04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-D44" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-D34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-D54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BZI-AUD54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247BFI-D54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC62-80-WLCSP">
+            <accept Dname="CY8C6247FDI-D02" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247FDI-D32" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247FDI-D52" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6247FTI-D52" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC63-116-BGA-BLE">
+            <accept Dname="CY8C6336BZI-BLF03" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF03" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF53" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6336BZI-BLD13" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD43" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD33" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD53" Dvendor="Cypress:19" />
+            <accept Dname="CY8C637BZI-BLD74" Dvendor="Cypress:19" />
+            <accept Dname="CY8C68237BZ-BLE" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6337BZI-BLF13" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC63-104-M-CSP-BLE">
+            <accept Dname="CY8C6347FMI-BLD13" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347FMI-BLD43" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347FMI-BLD33" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347FMI-BLD53" Dvendor="Cypress:19" />
+            <accept Dname="CY8C637FMI-BLD73" Dvendor="Cypress:19" />
+            <accept Dname="CY8C68237FM-BLE" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC63-124-BGA">
+            <accept Dname="CY8C637BZI-MD76" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC63-116-BGA-USB">
+            <accept Dname="CY8C6336BZI-BUD13" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BUD43" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BUD33" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BUD53" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC63-124-BGA-SIP">
+            <accept Dname="CY8C6336BZI-BLF04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF04" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6316BZI-BLF54" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6336BZI-BLD14" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD44" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD34" Dvendor="Cypress:19" />
+            <accept Dname="CY8C6347BZI-BLD54" Dvendor="Cypress:19" />
+        </condition>
+
+        <condition id="PSOC63-43-SMT">
+            <accept Dname="CYBLE-416045-02" Dvendor="Cypress:19" />
+        </condition>
+
+
+        <!-- Linker script conditions -->
+        <condition id="PSoC 60 CY8C6xx6 CM4">
+          <accept Dname="CY8C6016BZI-F04" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6036BZI-F04" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 60 CY8C6xx6 CM4 GCC">
+          <require condition="PSoC 60 CY8C6xx6 CM4" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 60 CY8C6xx6 CM4 IAR">
+          <require condition="PSoC 60 CY8C6xx6 CM4" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 60 CY8C6xx6 CM4 ARMCC">
+          <require condition="PSoC 60 CY8C6xx6 CM4" />
+          <require condition="ARMCC" />
+        </condition>
+
+        <condition id="PSoC 61 CY8C6xx6 CM4">
+          <accept Dname="CY8C6116BZI-F54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6136BZI-F14" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6136BZI-F34" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6136FDI-F42" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6136FTI-F42" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 61 CY8C6xx7 CM4">
+          <accept Dname="CY8C6117BZI-F34" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6117FDI-F02" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6137BZI-F14" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6137BZI-F34" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6137BZI-F54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6137FDI-F02" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 61 CY8C6xx6 CM4 GCC">
+          <require condition="PSoC 61 CY8C6xx6 CM4" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 61 CY8C6xx6 CM4 IAR">
+          <require condition="PSoC 61 CY8C6xx6 CM4" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 61 CY8C6xx6 CM4 ARMCC">
+          <require condition="PSoC 61 CY8C6xx6 CM4" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 61 CY8C6xx7 CM4 GCC">
+          <require condition="PSoC 61 CY8C6xx7 CM4" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 61 CY8C6xx7 CM4 IAR">
+          <require condition="PSoC 61 CY8C6xx7 CM4" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 61 CY8C6xx7 CM4 ARMCC">
+          <require condition="PSoC 61 CY8C6xx7 CM4" />
+          <require condition="ARMCC" />
+        </condition>
+
+        <condition id="PSoC 62 CY8C6xx6 CM0+">
+          <accept Dname="CY8C6246BZI-D04" Dvendor="Cypress:19" />
+          <require condition="CM0+" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx6 CM4 Dual Core">
+          <accept Dname="CY8C6246BZI-D04" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM0+">
+          <accept Dname="CY8C6247BFI-D54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-AUD54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-D34" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-D44" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-D54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FDI-D02" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FDI-D32" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FDI-D52" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FTI-D52" Dvendor="Cypress:19" />
+          <require condition="CM0+" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM4 Dual Core">
+          <accept Dname="CY8C6247BFI-D54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-AUD54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-D34" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-D44" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247BZI-D54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FDI-D02" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FDI-D32" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FDI-D52" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6247FTI-D52" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx6 CM0+ GCC">
+          <require condition="PSoC 62 CY8C6xx6 CM0+" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx6 CM0+ IAR">
+          <require condition="PSoC 62 CY8C6xx6 CM0+" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx6 CM0+ ARMCC">
+          <require condition="PSoC 62 CY8C6xx6 CM0+" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx6 CM4 Dual Core GCC">
+          <require condition="PSoC 62 CY8C6xx6 CM4 Dual Core" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx6 CM4 Dual Core IAR">
+          <require condition="PSoC 62 CY8C6xx6 CM4 Dual Core" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx6 CM4 Dual Core ARMCC">
+          <require condition="PSoC 62 CY8C6xx6 CM4 Dual Core" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM0+ GCC">
+          <require condition="PSoC 62 CY8C6xx7 CM0+" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM0+ IAR">
+          <require condition="PSoC 62 CY8C6xx7 CM0+" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM0+ ARMCC">
+          <require condition="PSoC 62 CY8C6xx7 CM0+" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM4 Dual Core GCC">
+          <require condition="PSoC 62 CY8C6xx7 CM4 Dual Core" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM4 Dual Core IAR">
+          <require condition="PSoC 62 CY8C6xx7 CM4 Dual Core" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 62 CY8C6xx7 CM4 Dual Core ARMCC">
+          <require condition="PSoC 62 CY8C6xx7 CM4 Dual Core" />
+          <require condition="ARMCC" />
+        </condition>
+
+        <condition id="PSoC 63 CY8C6xx6 CM4">
+          <accept Dname="CY8C6316BZI-BLF03" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6316BZI-BLF04" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6316BZI-BLF53" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6316BZI-BLF54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6336BZI-BLF03" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6336BZI-BLF04" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM0+">
+          <accept Dname="CY8C6336BZI-BLD13" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6336BZI-BLD14" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6336BZI-BUD13" Dvendor="Cypress:19" />
+          <require condition="CM0+" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM4 Dual Core">
+          <accept Dname="CY8C6336BZI-BLD13" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6336BZI-BLD14" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6336BZI-BUD13" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4">
+          <accept Dname="CY8C6337BZI-BLF13" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM0+">
+          <accept Dname="CY8C6347BZI-BLD33" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD34" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD43" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD44" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD53" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BUD33" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BUD43" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BUD53" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD13" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD33" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD43" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD53" Dvendor="Cypress:19" />
+          <accept Dname="CY8C637BZI-BLD74" Dvendor="Cypress:19" />
+          <accept Dname="CY8C637BZI-MD76" Dvendor="Cypress:19" />
+          <accept Dname="CY8C637FMI-BLD73" Dvendor="Cypress:19" />
+          <accept Dname="CY8C68237BZ-BLE" Dvendor="Cypress:19" />
+          <accept Dname="CY8C68237FM-BLE" Dvendor="Cypress:19" />
+          <accept Dname="CYBLE-416045-02" Dvendor="Cypress:19" />
+          <require condition="CM0+" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4 Dual Core">
+          <accept Dname="CY8C6347BZI-BLD33" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD34" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD43" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD44" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD53" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BLD54" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BUD33" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BUD43" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347BZI-BUD53" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD13" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD33" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD43" Dvendor="Cypress:19" />
+          <accept Dname="CY8C6347FMI-BLD53" Dvendor="Cypress:19" />
+          <accept Dname="CY8C637BZI-BLD74" Dvendor="Cypress:19" />
+          <accept Dname="CY8C637BZI-MD76" Dvendor="Cypress:19" />
+          <accept Dname="CY8C637FMI-BLD73" Dvendor="Cypress:19" />
+          <accept Dname="CY8C68237BZ-BLE" Dvendor="Cypress:19" />
+          <accept Dname="CY8C68237FM-BLE" Dvendor="Cypress:19" />
+          <accept Dname="CYBLE-416045-02" Dvendor="Cypress:19" />
+          <require condition="CM4" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM4 GCC">
+          <require condition="PSoC 63 CY8C6xx6 CM4" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM4 IAR">
+          <require condition="PSoC 63 CY8C6xx6 CM4" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM4 ARMCC">
+          <require condition="PSoC 63 CY8C6xx6 CM4" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM0+ GCC">
+          <require condition="PSoC 63 CY8C6xx6 CM0+" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM0+ IAR">
+          <require condition="PSoC 63 CY8C6xx6 CM0+" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM0+ ARMCC">
+          <require condition="PSoC 63 CY8C6xx6 CM0+" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM4 Dual Core GCC">
+          <require condition="PSoC 63 CY8C6xx6 CM4 Dual Core" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM4 Dual Core IAR">
+          <require condition="PSoC 63 CY8C6xx6 CM4 Dual Core" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx6 CM4 Dual Core ARMCC">
+          <require condition="PSoC 63 CY8C6xx6 CM4 Dual Core" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4 GCC">
+          <require condition="PSoC 63 CY8C6xx7 CM4" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4 IAR">
+          <require condition="PSoC 63 CY8C6xx7 CM4" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4 ARMCC">
+          <require condition="PSoC 63 CY8C6xx7 CM4" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM0+ GCC">
+          <require condition="PSoC 63 CY8C6xx7 CM0+" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM0+ IAR">
+          <require condition="PSoC 63 CY8C6xx7 CM0+" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM0+ ARMCC">
+          <require condition="PSoC 63 CY8C6xx7 CM0+" />
+          <require condition="ARMCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4 Dual Core GCC">
+          <require condition="PSoC 63 CY8C6xx7 CM4 Dual Core" />
+          <require condition="GCC" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4 Dual Core IAR">
+          <require condition="PSoC 63 CY8C6xx7 CM4 Dual Core" />
+          <require condition="IAR" />
+        </condition>
+        <condition id="PSoC 63 CY8C6xx7 CM4 Dual Core ARMCC">
+          <require condition="PSoC 63 CY8C6xx7 CM4 Dual Core" />
+          <require condition="ARMCC" />
+        </condition>
+
+    </conditions>
+
+    <components>
+        <!-- ****************  CMSIS CORE  **************** -->
+        <component Cclass="CMSIS" Cgroup="CORE" Cversion="5.0.1" condition="Cortex-M Device" Cvendor="ARM:82">
+            <description>CMSIS-CORE for Cortex-M processor</description>
+            <files>
+                <file category="include" name="cmsis/include/" />
+                <file category="header"  name="cmsis/include/arm_common_tables.h" />
+                <file category="header"  name="cmsis/include/arm_const_structs.h" />
+                <file category="header"  name="cmsis/include/arm_math.h" />
+                <file category="header"  name="cmsis/include/cmsis_armcc.h"        condition="ARMCC" />
+                <file category="header"  name="cmsis/include/cmsis_armclang.h"     condition="ARMCC" />
+                <file category="header"  name="cmsis/include/cmsis_compiler.h" />
+                <file category="header"  name="cmsis/include/cmsis_gcc.h"          condition="GCC" />
+                <file category="header"  name="cmsis/include/core_cm0plus.h" />
+                <file category="header"  name="cmsis/include/core_cm4.h" />
+            </files>
+        </component>
+
+        <!--  ****************  Drivers  **************** -->
+        <component Cclass="PDL" Cgroup="sysint" Cversion="1.10.0" condition="PDL Common">
+            <description>The sysint driver contains an API for configuring and interfacing an interrupt controller</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/sysint/cy_sysint.c" />
+                <file category="header"  name="drivers/peripheral/sysint/cy_sysint.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ipc" Cversion="1.20.0" condition="PDL Common">
+            <description>The ipc driver contains an API for an inter process communication</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/ipc/cy_ipc_drv.c" />
+                <file category="header"  name="drivers/peripheral/ipc/cy_ipc_drv.h" />
+                <file category="sourceC" name="drivers/peripheral/ipc/cy_ipc_sema.c" />
+                <file category="header"  name="drivers/peripheral/ipc/cy_ipc_sema.h" />
+                <file category="sourceC" name="drivers/peripheral/ipc/cy_ipc_pipe.c" />
+                <file category="header"  name="drivers/peripheral/ipc/cy_ipc_pipe.h" />
+                <file category="sourceC" name="drivers/peripheral/ipc/cy_ipc_config.c" attr="config" version="1.20.0" />
+                <file category="header"  name="drivers/peripheral/ipc/cy_ipc_config.h" attr="config" version="1.20.0" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="sysclk" Cversion="1.11.0" condition="PDL Common">
+            <description>The sysclk driver contains an API for configuring system and peripheral clocks</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/sysclk/cy_sysclk.c" />
+                <file category="header"  name="drivers/peripheral/sysclk/cy_sysclk.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="wdt" Cversion="1.0.2" condition="PDL Common">
+            <description>The wdt driver contains an API for configuring and use a watchdog timer</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/wdt/cy_wdt.c" />
+                <file category="header"  name="drivers/peripheral/wdt/cy_wdt.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="mcwdt" Cversion="1.10.1" condition="PDL Common">
+            <description>The mcwdt driver contains an API for configuring and use a Multi-Counter Watchdog</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/mcwdt/cy_mcwdt.c" />
+                <file category="header"  name="drivers/peripheral/mcwdt/cy_mcwdt.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="rtc" Cversion="2.10.0" condition="PDL Common">
+            <description>The rtc driver contains an API for configuring and use a Real Time Clock</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/rtc/cy_rtc.c" />
+                <file category="header"  name="drivers/peripheral/rtc/cy_rtc.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="smif" Cversion="1.11.0" condition="PDL Common">
+            <description>The smif driver contains an API for interfacing external-memory devices</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/smif/cy_smif.c" />
+                <file category="header"  name="drivers/peripheral/smif/cy_smif.h" />
+                <file category="sourceC" name="drivers/peripheral/smif/cy_smif_memslot.c" />
+                <file category="header"  name="drivers/peripheral/smif/cy_smif_memslot.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="dma" Cversion="2.0.1" condition="PDL Common">
+            <description>The dma driver contains an API for configuring a DMA channel and its descriptors</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/dma/cy_dma.c" />
+                <file category="header"  name="drivers/peripheral/dma/cy_dma.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="tcpwm" Cversion="1.0.1" condition="PDL Common">
+            <description>The tcpwm driver contains an API for configuring a multifunction timer counter, PWM, and quadrature decoder peripheral</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="header"  name="drivers/peripheral/tcpwm/cy_tcpwm.h" />
+                <file category="header"  name="drivers/peripheral/tcpwm/cy_tcpwm_counter.h" />
+                <file category="sourceC" name="drivers/peripheral/tcpwm/cy_tcpwm_counter.c" />
+                <file category="header"  name="drivers/peripheral/tcpwm/cy_tcpwm_pwm.h" />
+                <file category="sourceC" name="drivers/peripheral/tcpwm/cy_tcpwm_pwm.c" />
+                <file category="header"  name="drivers/peripheral/tcpwm/cy_tcpwm_quaddec.h" />
+                <file category="sourceC" name="drivers/peripheral/tcpwm/cy_tcpwm_quaddec.c" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="scb" Cversion="2.10.0" condition="PDL Common">
+            <description>The scb driver contains an API for configuring a multifunction serial communication block</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/scb/cy_scb_common.c" />
+                <file category="header"  name="drivers/peripheral/scb/cy_scb_common.h" />
+                <file category="sourceC" name="drivers/peripheral/scb/cy_scb_i2c.c" />
+                <file category="header"  name="drivers/peripheral/scb/cy_scb_i2c.h" />
+                <file category="sourceC" name="drivers/peripheral/scb/cy_scb_ezi2c.c" />
+                <file category="header"  name="drivers/peripheral/scb/cy_scb_ezi2c.h" />
+                <file category="sourceC" name="drivers/peripheral/scb/cy_scb_spi.c" />
+                <file category="header"  name="drivers/peripheral/scb/cy_scb_spi.h" />
+                <file category="sourceC" name="drivers/peripheral/scb/cy_scb_uart.c" />
+                <file category="header"  name="drivers/peripheral/scb/cy_scb_uart.h" />
+           </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="efuse" Cversion="1.0.0" condition="PDL Common">
+            <description>The efuse driver contains API to work with fuse data</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/efuse/cy_efuse.c" />
+                <file category="header"  name="drivers/peripheral/efuse/cy_efuse.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="flash" Cversion="3.11.0" condition="PDL Common">
+            <description>The flash driver contains an API for Flash memory operations</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/flash/cy_flash.c" />
+                <file category="header"  name="drivers/peripheral/flash/cy_flash.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="gpio" Cversion="1.10.1" condition="PDL Common">
+            <description>The gpio driver contains an API for configuring and accessing I/O functionality</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/gpio/cy_gpio.c" />
+                <file category="header"  name="drivers/peripheral/gpio/cy_gpio.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="sar" Cversion="1.10.0" condition="PDL Common">
+            <description>The sar driver contains API for configuring and controlling the SAR ADC subsystem</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/sar/cy_sar.c" />
+                <file category="header"  name="drivers/peripheral/sar/cy_sar.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ctb" Cversion="1.0.0" condition="System Analog Reference Block Dependency">
+            <description>The ctb driver contains API for configuring and controlling the CTB analog block</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/ctb/cy_ctb.c" />
+                <file category="header"  name="drivers/peripheral/ctb/cy_ctb.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ctdac" Cversion="1.0.1" condition="PDL Common">
+            <description>The ctdac driver contains API for configuring and controlling the CTDAC analog block</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/ctdac/cy_ctdac.c" />
+                <file category="header"  name="drivers/peripheral/ctdac/cy_ctdac.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="sysanalog" Cversion="1.0.0" condition="PDL Common">
+            <description>The sysanalog driver contains API for configuring and controlling the Analog Reference block</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/sysanalog/cy_sysanalog.c" />
+                <file category="header"  name="drivers/peripheral/sysanalog/cy_sysanalog.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="syspm" Cversion="2.21.0" condition="PDL Common">
+            <description>The syspm driver contains an API for configuring power management system</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/syspm/cy_syspm.c" />
+                <file category="header"  name="drivers/peripheral/syspm/cy_syspm.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="syslib" Cversion="2.0.1" condition="PDL Common">
+            <description>The system library provides API to handle the timing, logical checking or register</description>
+            <files>
+                <file category="include"   name="drivers/peripheral/" />
+                <file category="sourceC"   name="drivers/peripheral/syslib/cy_syslib.c" />
+                <file category="header"    name="drivers/peripheral/syslib/cy_syslib.h" />
+                <file category="sourceAsm" name="drivers/peripheral/syslib/gcc/cy_syslib_gcc.S" condition="GCC" />
+                <file category="sourceAsm" name="drivers/peripheral/syslib/iar/cy_syslib_iar.s" condition="IAR" />
+                <file category="sourceAsm" name="drivers/peripheral/syslib/mdk/cy_syslib_mdk.s" condition="ARMCC" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="trigmux" Cversion="1.10.1" condition="PDL Common">
+            <description>The trigmux driver contains an API to route a trigger output from a peripheral to the trigger input of another peripheral</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/trigmux/cy_trigmux.c" />
+                <file category="header"  name="drivers/peripheral/trigmux/cy_trigmux.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="lpcomp" Cversion="1.10.1" condition="PDL Common">
+            <description>The lpcomp driver contains an API for configuring and use the Low Power Comparator</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/lpcomp/cy_lpcomp.c" />
+                <file category="header"  name="drivers/peripheral/lpcomp/cy_lpcomp.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="systick" Cversion="1.0.1" condition="PDL Common">
+            <description>The systick driver contains an API for configuring SysTick timer</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/systick/cy_systick.c" />
+                <file category="header"  name="drivers/peripheral/systick/cy_systick.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="i2s" Cversion="2.0.1" condition="PDL Common">
+            <description>The i2s driver contains an API for configuring and use the Inter-IC Sound block</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/i2s/cy_i2s.c" />
+                <file category="header"  name="drivers/peripheral/i2s/cy_i2s.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="pdm_pcm" Cversion="2.10.0" condition="PDL Common">
+            <description>The pdm_pcm driver contains an API for configuring and use the PDM to PCM decoder block</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/pdm_pcm/cy_pdm_pcm.c" />
+                <file category="header"  name="drivers/peripheral/pdm_pcm/cy_pdm_pcm.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="crypto" Cvariant="Base library" Cversion="2.0.0" condition="PDL Common">
+            <description>CRC, DES, SHA, PRNG, TRNG</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_common.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_server.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_config.h" attr="config" version="2.0.0" />
+                <file category="sourceC" name="drivers/peripheral/crypto/cy_crypto_config.c" attr="config" version="2.0.0" />
+
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_client_gcc.a" condition="GCC" />
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_client_mdk.a" condition="ARMCC IAR" />
+
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_server_gcc_base.a" condition="GCC" />
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_server_mdk_base.a" condition="ARMCC IAR" />
+            </files>
+        </component>
+        <component Cclass="PDL" Cgroup="crypto" Cvariant="Extra library" Cversion="2.0.0" condition="PDL Common">
+            <description>CRC, DES, SHA, PRNG, TRNG, CMAC, HMAC, AES</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_common.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_server.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_config.h" attr="config" version="2.0.0" />
+                <file category="sourceC" name="drivers/peripheral/crypto/cy_crypto_config.c" attr="config" version="2.0.0" />
+
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_client_gcc.a" condition="GCC" />
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_client_mdk.a" condition="ARMCC IAR" />
+
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_server_gcc_extra.a" condition="GCC" />
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_server_mdk_extra.a" condition="ARMCC IAR" />
+            </files>
+        </component>
+        <component Cclass="PDL" Cgroup="crypto" Cvariant="Full library" Cversion="2.0.0" condition="PDL Common">
+            <description>CRC, DES, SHA, PRNG, TRNG, CMAC, HMAC, AES, RSA</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_common.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_server.h" />
+                <file category="header"  name="drivers/peripheral/crypto/cy_crypto_config.h" attr="config" version="2.0.0" />
+                <file category="sourceC" name="drivers/peripheral/crypto/cy_crypto_config.c" attr="config" version="2.0.0" />
+
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_client_gcc.a" condition="GCC" />
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_client_mdk.a" condition="ARMCC IAR" />
+
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_server_gcc_full.a" condition="GCC" />
+                <file category="library" name="drivers/peripheral/crypto/libs/cy_crypto_server_mdk_full.a" condition="ARMCC IAR" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="profile" Cversion="1.0.0" condition="PDL Common">
+            <description>The energy profiler driver contains an API to configure and use the profile block</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/profile/cy_profile.c" />
+                <file category="header"  name="drivers/peripheral/profile/cy_profile.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="prot" Cversion="1.10.0" condition="PDL Common">
+            <description>The protection unit driver contains an API to configure and use the protection structures</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/prot/cy_prot.c" />
+                <file category="header"  name="drivers/peripheral/prot/cy_prot.h" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="lvd" Cversion="1.0.1" condition="PDL Common">
+            <description>The lvd driver contains an API for configuring and use the Low Voltage Detector</description>
+            <files>
+                <file category="include" name="drivers/peripheral/" />
+                <file category="sourceC" name="drivers/peripheral/lvd/cy_lvd.c" />
+                <file category="header"  name="drivers/peripheral/lvd/cy_lvd.h" />
+            </files>
+        </component>
+
+       <!-- ****************  MIDDLEWARE   **************** -->
+
+       <component Cclass="PDL" Cgroup="em_eeprom" Cversion="1.0.1" condition="Em_EEPROM Dependency">
+            <description>Emulated EEPROM Middleware</description>
+            <files>
+                <file category="include" name="middleware/" />
+                <file category="header"  name="middleware/em_eeprom/cy_em_eeprom.h" />
+                <file category="sourceC" name="middleware/em_eeprom/cy_em_eeprom.c" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ble" Csub="Core" Cversion="2.20.0" condition="BLE Dependency">
+            <description>The Bluetooth Low Energy (BLE) middleware. Includes BLE profiles and HAL configuration routines</description>
+            <files>
+                <file category="include" name="middleware/" />
+                <file category="header"  name="middleware/ble/config/cy_ble_config.h" attr="config" version="2.20.0"/>
+
+                <file category="sourceC" name="middleware/ble/cy_ble.c" />
+                <file category="header"  name="middleware/ble/cy_ble.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_hal_int.c" />
+                <file category="sourceC" name="middleware/ble/cy_ble_hal_pvt.c" />
+                <file category="header"  name="middleware/ble/cy_ble_hal_pvt.h" />
+                <file category="header"  name="middleware/ble/cy_ble_defines.h" />
+
+                <file category="sourceC" name="middleware/ble/cy_ble_gap.c" />
+                <file category="header"  name="middleware/ble/cy_ble_gap.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_gatt.c" />
+                <file category="header"  name="middleware/ble/cy_ble_gatt.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_event_handler.c" />
+                <file category="header"  name="middleware/ble/cy_ble_event_handler.h" />
+
+                <file category="header"  name="middleware/ble/cy_ble_stack.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_host_main.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_gatt_server.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_gap_peripheral.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_gatt_client.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_l2cap.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_pvt.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_gatt_db.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_gap_central.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_gap.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_gatt.h" />
+                <file category="header"  name="middleware/ble/cy_ble_stack_host_error.h" />
+
+                <file category="sourceC" name="middleware/ble/cy_ble_ancs.c" />
+                <file category="header"  name="middleware/ble/cy_ble_ancs.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_ans.c" />
+                <file category="header"  name="middleware/ble/cy_ble_ans.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_aios.c" />
+                <file category="header"  name="middleware/ble/cy_ble_aios.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_bas.c" />
+                <file category="header"  name="middleware/ble/cy_ble_bas.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_bcs.c" />
+                <file category="header"  name="middleware/ble/cy_ble_bcs.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_bls.c" />
+                <file category="header"  name="middleware/ble/cy_ble_bls.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_bms.c" />
+                <file category="header"  name="middleware/ble/cy_ble_bms.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_bts.c" />
+                <file category="header"  name="middleware/ble/cy_ble_bts.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_cgms.c" />
+                <file category="header"  name="middleware/ble/cy_ble_cgms.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_cps.c" />
+                <file category="header"  name="middleware/ble/cy_ble_cps.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_cscs.c" />
+                <file category="header"  name="middleware/ble/cy_ble_cscs.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_cts.c" />
+                <file category="header"  name="middleware/ble/cy_ble_cts.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_custom.c" />
+                <file category="header"  name="middleware/ble/cy_ble_custom.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_dis.c" />
+                <file category="header"  name="middleware/ble/cy_ble_dis.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_ess.c" />
+                <file category="header"  name="middleware/ble/cy_ble_ess.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_gls.c" />
+                <file category="header"  name="middleware/ble/cy_ble_gls.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_hids.c" />
+                <file category="header"  name="middleware/ble/cy_ble_hids.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_hps.c" />
+                <file category="header"  name="middleware/ble/cy_ble_hps.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_hrs.c" />
+                <file category="header"  name="middleware/ble/cy_ble_hrs.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_hts.c" />
+                <file category="header"  name="middleware/ble/cy_ble_hts.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_ias.c" />
+                <file category="header"  name="middleware/ble/cy_ble_ias.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_ips.c" />
+                <file category="header"  name="middleware/ble/cy_ble_ips.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_lls.c" />
+                <file category="header"  name="middleware/ble/cy_ble_lls.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_lns.c" />
+                <file category="header"  name="middleware/ble/cy_ble_lns.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_ndcs.c" />
+                <file category="header"  name="middleware/ble/cy_ble_ndcs.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_plxs.c" />
+                <file category="header"  name="middleware/ble/cy_ble_plxs.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_pass.c" />
+                <file category="header"  name="middleware/ble/cy_ble_pass.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_rscs.c" />
+                <file category="header"  name="middleware/ble/cy_ble_rscs.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_rtus.c" />
+                <file category="header"  name="middleware/ble/cy_ble_rtus.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_scps.c" />
+                <file category="header"  name="middleware/ble/cy_ble_scps.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_tps.c" />
+                <file category="header"  name="middleware/ble/cy_ble_tps.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_uds.c" />
+                <file category="header"  name="middleware/ble/cy_ble_uds.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_wpts.c" />
+                <file category="header"  name="middleware/ble/cy_ble_wpts.h" />
+                <file category="sourceC" name="middleware/ble/cy_ble_wss.c" />
+                <file category="header"  name="middleware/ble/cy_ble_wss.h" />
+
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ble" Csub="Stack library" Cvariant="Profile - Host CM4 / Ctrl CM4" Cversion="2.20.0" condition="BLE Dependency CM4">
+            <description>The complete BLE protocol mode. The BLE host and controller run on CM4</description>
+            <files>
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_radio_max_cm4.a" condition="CM4 GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_radio_max_cm4.a" condition="CM4 ARMCC" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_soc_cm4.a"       condition="CM4 GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_soc_cm4.a"       condition="CM4 ARMCC" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ble" Csub="Stack library" Cvariant="Profile - Host CM0+ / Ctrl CM0+" Cversion="2.20.0" condition="BLE Dependency CM0+">
+            <description>The complete BLE protocol mode. The BLE host and controller run on CM0+</description>
+            <files>
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_radio_max_cm0p.a" condition="CM0+ GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_radio_max_cm0p.a" condition="CM0+ ARMCC" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_soc_cm0p.a"       condition="CM0+ GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_soc_cm0p.a"       condition="CM0+ ARMCC" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ble" Csub="Stack library" Cvariant="Profile - Host CM4 / Ctrl CM0+" Cversion="2.20.0" condition="BLE Dependency Dual">
+            <description>The complete BLE protocol mode. The BLE host runs on CM4, the BLE controller runs on CM0+</description>
+            <files>
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_radio_max_cm0p.a" condition="CM0+ GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_radio_max_cm0p.a" condition="CM0+ ARMCC" />
+
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_controller_ipc_cm0p.a" condition="CM0+ GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_host_ipc_cm4.a"        condition="CM4 GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_controller_ipc_cm0p.a" condition="CM0+ ARMCC" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_host_ipc_cm4.a"        condition="CM4 ARMCC" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ble" Csub="Stack library" Cvariant="HCI - Ctrl CM4" Cversion="2.20.0" condition="BLE Dependency CM4">
+            <description>The BLE HCI mode. The BLE controller runs on CM4</description>
+            <files>
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_radio_max_cm4.a"       condition="CM4 GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_radio_max_cm4.a"       condition="CM4 ARMCC" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_controller_uart_cm4.a" condition="CM4 GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_controller_uart_cm4.a" condition="CM4 ARMCC" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="ble" Csub="Stack library" Cvariant="HCI - Ctrl CM0+" Cversion="2.20.0" condition="BLE Dependency CM0+">
+            <description>The BLE HCI mode. The BLE controller runs on CM0+</description>
+            <files>
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_radio_max_cm0p.a"       condition="CM0+ GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_radio_max_cm0p.a"       condition="CM0+ ARMCC" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_gcc_controller_uart_cm0p.a" condition="CM0+ GCC IAR" />
+                <file category="library" name="middleware/ble/lib/cy_ble_stack_mdk_controller_uart_cm0p.a" condition="CM0+ ARMCC" />
+            </files>
+        </component>
+
+        <component Cclass="PDL" Cgroup="bleclk" Cversion="2.20.0" condition="PSOC63">
+            <description>The bleclk driver contains an API for configuring BLE ECO clock</description>
+            <files>
+                <file category="include" name="middleware/" />
+                <file category="header"  name="middleware/ble/config/ble_clk/cy_ble_config.h" attr="config" version="2.20.0" condition="No BLE Middleware" />
+                <file category="sourceC" name="middleware/ble/cy_ble_clk.c" />
+                <file category="header"  name="middleware/ble/cy_ble_clk.h" />
+            </files>
+        </component>
+        
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Cvendor="Segger" condition="Cortex-M Device">
+            <description>emWin graphical user interface library</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/include/" />
+                <file category="other"  name="middleware/emWin/code/include/BUTTON.h" />
+                <file category="other"  name="middleware/emWin/code/include/BUTTON_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/CALENDAR.h" />
+                <file category="other"  name="middleware/emWin/code/include/CHECKBOX.h" />
+                <file category="other"  name="middleware/emWin/code/include/CHECKBOX_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/CHOOSECOLOR.h" />
+                <file category="other"  name="middleware/emWin/code/include/CHOOSEFILE.h" />
+                <file category="other"  name="middleware/emWin/code/include/DIALOG.h" />
+                <file category="other"  name="middleware/emWin/code/include/DIALOG_Intern.h" />
+                <file category="other"  name="middleware/emWin/code/include/DROPDOWN.h" />
+                <file category="other"  name="middleware/emWin/code/include/DROPDOWN_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/EDIT.h" />
+                <file category="other"  name="middleware/emWin/code/include/EDIT_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/FRAMEWIN.h" />
+                <file category="other"  name="middleware/emWin/code/include/FRAMEWIN_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/Global.h" />
+                <file category="other"  name="middleware/emWin/code/include/GRAPH.h" />
+                <file category="other"  name="middleware/emWin/code/include/GRAPH_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_ARRAY.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_ARRAY_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_BMP_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_ConfDefaults.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_Debug.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_FontIntern.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_GCache_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_GIF_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_HOOK.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_JPEG_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_SetOrientation.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_SetOrientationCX.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_SPRITE_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_Type.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_Version.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI_VNC.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI__BiDi2_Brackets_800.h" />
+                <file category="other"  name="middleware/emWin/code/include/GUI__BiDi2_Types_800.h" />
+                <file category="other"  name="middleware/emWin/code/include/HEADER.h" />
+                <file category="other"  name="middleware/emWin/code/include/HEADER_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/ICONVIEW.h" />
+                <file category="other"  name="middleware/emWin/code/include/ICONVIEW_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/IMAGE.h" />
+                <file category="other"  name="middleware/emWin/code/include/IMAGE_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/IP_FS.h" />
+                <file category="other"  name="middleware/emWin/code/include/KNOB.h" />
+                <file category="other"  name="middleware/emWin/code/include/KNOB_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/LCD.h" />
+                <file category="other"  name="middleware/emWin/code/include/LCD_ConfDefaults.h" />
+                <file category="other"  name="middleware/emWin/code/include/LCD_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/LCD_Protected.h" />
+                <file category="other"  name="middleware/emWin/code/include/LCD_SIM.h" />
+                <file category="other"  name="middleware/emWin/code/include/LISTBOX.h" />
+                <file category="other"  name="middleware/emWin/code/include/LISTBOX_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/LISTVIEW.h" />
+                <file category="other"  name="middleware/emWin/code/include/LISTVIEW_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/LISTWHEEL.h" />
+                <file category="other"  name="middleware/emWin/code/include/LISTWHEEL_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/MENU.h" />
+                <file category="other"  name="middleware/emWin/code/include/MENU_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/MESSAGEBOX.h" />
+                <file category="other"  name="middleware/emWin/code/include/MULTIEDIT.h" />
+                <file category="other"  name="middleware/emWin/code/include/MULTIPAGE.h" />
+                <file category="other"  name="middleware/emWin/code/include/MULTIPAGE_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/PROGBAR.h" />
+                <file category="other"  name="middleware/emWin/code/include/PROGBAR_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/RADIO.h" />
+                <file category="other"  name="middleware/emWin/code/include/RADIO_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/SCROLLBAR.h" />
+                <file category="other"  name="middleware/emWin/code/include/SCROLLBAR_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/SEGGER.h" />
+                <file category="other"  name="middleware/emWin/code/include/SLIDER.h" />
+                <file category="other"  name="middleware/emWin/code/include/SLIDER_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/SPINBOX.h" />
+                <file category="other"  name="middleware/emWin/code/include/SPINBOX_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/SWIPELIST.h" />
+                <file category="other"  name="middleware/emWin/code/include/SWIPELIST_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/TEXT.h" />
+                <file category="other"  name="middleware/emWin/code/include/TEXT_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/TREEVIEW.h" />
+                <file category="other"  name="middleware/emWin/code/include/TREEVIEW_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/WIDGET.h" />
+                <file category="other"  name="middleware/emWin/code/include/WINDOW_Private.h" />
+                <file category="other"  name="middleware/emWin/code/include/WM.h" />
+                <file category="other"  name="middleware/emWin/code/include/WM_GUI.h" />
+                <file category="other"  name="middleware/emWin/code/include/WM_Intern.h" />
+
+                <file category="sourceC" name="middleware/emWin/code/config/GUIConf.c" attr="config" version="5.46" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="Core" Cvariant="nOSnTS" Cvendor="Segger" condition="Cortex-M Device">
+            <description>No RTOS and no Touch support</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/include/nosnts/" />
+                <file category="header"  name="middleware/emWin/code/include/nosnts/GUIConf.h"      attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/config/GUI_X.c"                attr="config" version="5.46" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_nosnts_gcc.a"         condition="CM0+ CM4 NO_FPU GCC" />
+                <file category="library" name="middleware/emWin/libs/libemWin_nosnts_cm4f_gcc.a"    condition="CM4 FPU GCC" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_nosnts_cm4_mdk.a"     condition="CM4 ARMCC IAR" />
+                <file category="library" name="middleware/emWin/libs/libemWin_nosnts_cm0plus_mdk.a" condition="CM0+ ARMCC IAR" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="Core" Cvariant="nOSTS" Cvendor="Segger" condition="Cortex-M Device">
+            <description>Touch support</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/include/nosts/" />
+                <file category="header"  name="middleware/emWin/code/include/nosts/GUIConf.h"       attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/config/GUI_X.c"                attr="config" version="5.46" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_nosts_gcc.a"          condition="CM0+ CM4 NO_FPU GCC" />
+                <file category="library" name="middleware/emWin/libs/libemWin_nosts_cm4f_gcc.a"     condition="CM4 FPU GCC" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_nosts_cm4_mdk.a"      condition="CM4 ARMCC IAR" />
+                <file category="library" name="middleware/emWin/libs/libemWin_nosts_cm0plus_mdk.a"  condition="CM0+ ARMCC IAR" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="Core" Cvariant="OSnTS" Cvendor="Segger" condition="Cortex-M Device">
+            <description>RTOS support</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/include/osnts/" />
+                <file category="header"  name="middleware/emWin/code/include/osnts/GUIConf.h"       attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/config/GUI_X_RTOS.c"           attr="config" version="5.46" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_osnts_gcc.a"          condition="CM0+ CM4 NO_FPU GCC" />
+                <file category="library" name="middleware/emWin/libs/libemWin_osnts_cm4f_gcc.a"     condition="CM4 FPU GCC" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_osnts_cm4_mdk.a"      condition="CM4 ARMCC IAR" />
+                <file category="library" name="middleware/emWin/libs/libemWin_osnts_cm0plus_mdk.a"  condition="CM0+ ARMCC IAR" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="Core" Cvariant="OSTS" Cvendor="Segger" condition="Cortex-M Device">
+            <description>RTOS and Touch support</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/include/osts/" />
+                <file category="header"  name="middleware/emWin/code/include/osts/GUIConf.h"        attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/config/GUI_X_RTOS.c"           attr="config" version="5.46" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_osts_gcc.a"           condition="CM0+ CM4 NO_FPU GCC" />
+                <file category="library" name="middleware/emWin/libs/libemWin_osts_cm4f_gcc.a"      condition="CM4 FPU GCC" />
+
+                <file category="library" name="middleware/emWin/libs/libemWin_osts_cm4_mdk.a"       condition="CM4 ARMCC IAR" />
+                <file category="library" name="middleware/emWin/libs/libemWin_osts_cm0plus_mdk.a"   condition="CM0+ ARMCC IAR" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="LCD Driver" Cvariant="FlexColor" Cvendor="Segger" condition="Cortex-M Device">
+            <description>FlexColor driver</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/drivers/FlexColor/" />
+                <file category="other" name="middleware/emWin/code/drivers/FlexColor/LCDConf.h"      attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/drivers/FlexColor/LCDConf.c"    attr="config" version="5.46" />
+                <file category="other" name="middleware/emWin/code/drivers/FlexColor/GUIDRV_FlexColor.h" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="LCD Driver" Cvariant="CompactColor_16" Cvendor="Segger" condition="Cortex-M Device">
+            <description>CompactColor_16 driver</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/drivers/CompactColor_16/" />
+                <file category="other" name="middleware/emWin/code/drivers/CompactColor_16/LCDConf.h"                       attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/drivers/CompactColor_16/LCDConf.c"                     attr="config" version="5.46" />
+                <file category="other" name="middleware/emWin/code/drivers/CompactColor_16/LCDConf_CompactColor_16.h"       attr="config" version="5.46" />
+                <file category="other"  name="middleware/emWin/code/drivers/CompactColor_16/GUIDRV_Generic.h" />
+                <file category="other" name="middleware/emWin/code/drivers/CompactColor_16/GUIDRV_CompactColor_16.h" />
+                <file category="sourceC" name="middleware/emWin/code/drivers/CompactColor_16/GUIDRV_CompactColor_16.c" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="LCD Driver" Cvariant="BitPlains" Cvendor="Segger" condition="Cortex-M Device">
+            <description>BitPlains driver</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/drivers/BitPlains/" />
+                <file category="other" name="middleware/emWin/code/drivers/BitPlains/LCDConf.h"    attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/drivers/BitPlains/LCDConf.c"   attr="config" version="5.46" />
+                <file category="other" name="middleware/emWin/code/drivers/BitPlains/GUIDRV_BitPlains.h" />
+            </files>
+        </component>
+        <component Cclass="Graphics" Cgroup="emWin" Cversion="5.46" Csub="LCD Driver" Cvariant="GraphicLCDCtrl" Cvendor="Segger" condition="Cortex-M Device">
+            <description>Driver for GraphicLCDCtrl Component</description>
+            <files>
+                <file category="include" name="middleware/emWin/code/drivers/Control/" />
+                <file category="other" name="middleware/emWin/code/drivers/Control/LCDConf.h"    attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/drivers/Control/LCDConf.c"   attr="config" version="5.46" />
+                <file category="sourceC" name="middleware/emWin/code/drivers/Control/GUIDRV_Control.c" />
+            </files>
+        </component>
+
+        <!-- **************** Bootloader SDK **************** -->
+        <component Cclass="bootloader" Cgroup="bootloader_sdk" Cversion="2.20.0" Csub="Core" condition="Bootloader SDK Core Dependency">
+            <description>Bootloader SDK core files</description>
+            <files>
+                <file category="include" name="./" />
+                <file category="sourceC" name="bootloader/cy_bootload.c" />
+                <file category="header"  name="bootloader/cy_bootload.h" />
+                <file category="header"  name="bootloader/bootload_user.h" attr="config" version="2.20.0" />
+
+                <file category="linkerScript" name="bootloader/gcc_linker_scripts/bootload_common.ld"     attr="config" version="2.20.0" condition="GCC"      />
+                <file category="linkerScript" name="bootloader/gcc_linker_scripts/bootload_cm0p.ld"       attr="config" version="2.20.0" condition="CM0+ GCC" />
+                <file category="linkerScript" name="bootloader/gcc_linker_scripts/bootload_cm4.ld"        attr="config" version="2.20.0" condition="CM4 GCC"  />
+
+                <file category="header"       name="bootloader/mdk_linker_scripts/bootload_mdk_common.h"  attr="config" version="2.20.0" condition="ARMCC"      />
+                <file category="sourceC"      name="bootloader/mdk_linker_scripts/bootload_mdk_symbols.c" attr="config" version="2.20.0" condition="ARMCC"      />
+                <file category="linkerScript" name="bootloader/mdk_linker_scripts/bootload_cm0p.scat"     attr="config" version="2.20.0" condition="CM0+ ARMCC" />
+                <file category="linkerScript" name="bootloader/mdk_linker_scripts/bootload_cm4.scat"      attr="config" version="2.20.0" condition="CM4 ARMCC"  />
+
+                <file category="other"        name="bootloader/iar_linker_scripts/bootload_common.icf"    attr="config" version="2.20.0" condition="IAR"      />
+                <file category="linkerScript" name="bootloader/iar_linker_scripts/bootload_cm0p.icf"      attr="config" version="2.20.0" condition="CM0+ IAR" />
+                <file category="linkerScript" name="bootloader/iar_linker_scripts/bootload_cm4.icf"       attr="config" version="2.20.0" condition="CM4 IAR"  />
+            </files>
+        </component>
+        <component Cclass="bootloader" Cgroup="bootloader_sdk" Cversion="2.20.0" Csub="App type" Cvariant="Bootloader" condition="PDL Common">
+            <description>Files specific to a bootloader applications</description>
+            <files>
+                <file category="sourceC" name="bootloader/bootload_user.c" attr="config" version="2.20.0" />
+            </files>
+        </component>
+        <component Cclass="bootloader" Cgroup="bootloader_sdk" Cversion="2.20.0" Csub="Communication UART" condition="Bootloader SDK Transport UART/I2C/SPI Dependency">
+            <description>UART communication files</description>
+            <files>
+                <file category="sourceC" name="bootloader/transport_uart.c" attr="config" version="2.20.0" />
+                <file category="header"  name="bootloader/transport_uart.h" attr="config" version="2.20.0" />
+            </files>
+        </component>
+        <component Cclass="bootloader" Cgroup="bootloader_sdk" Cversion="2.20.0" Csub="Communication BLE" condition="Bootloader SDK Transport BLE Dependency">
+            <description>BLE communication files</description>
+            <files>
+                <file category="sourceC" name="bootloader/transport_ble.c"  attr="config" version="2.20.0" />
+                <file category="header"  name="bootloader/transport_ble.h"  attr="config" version="2.20.0" />
+            </files>
+        </component>
+        <component Cclass="bootloader" Cgroup="bootloader_sdk" Cversion="2.20.0" Csub="Communication I2C" condition="Bootloader SDK Transport UART/I2C/SPI Dependency">
+            <description>I2C communication files</description>
+            <files>
+                <file category="sourceC" name="bootloader/transport_i2c.c"  attr="config" version="2.20.0" />
+                <file category="header"  name="bootloader/transport_i2c.h"  attr="config" version="2.20.0" />
+            </files>
+        </component>
+        <component Cclass="bootloader" Cgroup="bootloader_sdk" Cversion="2.20.0" Csub="Communication SPI" condition="Bootloader SDK Transport UART/I2C/SPI Dependency">
+            <description>SPI communication files</description>
+            <files>
+                <file category="sourceC" name="bootloader/transport_spi.c"  attr="config" version="2.20.0" />
+                <file category="header"  name="bootloader/transport_spi.h"  attr="config" version="2.20.0" />
+            </files>
+        </component>
+
+        <!-- ********** RTOS ********** -->
+        <component Cclass="RTOS" Cgroup="FreeRTOS" Cversion="10.0.1" Cvendor="Real Time Engineers Ltd." condition="CM4" >
+            <description>FreeRTOS Real Time Operating System</description>
+             <files>
+                <file category="include" name="rtos/FreeRTOS/10.0.1/Source/include/" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/FreeRTOS.h"          condition="CM4"/>
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/croutine.h"          condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/event_groups.h"      condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/list.h"              condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/mpu_wrappers.h"      condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/projdefs.h"          condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/queue.h"             condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/semphr.h"            condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/StackMacros.h"       condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/task.h"              condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/timers.h"            condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/portable.h"          condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/message_buffer.h"    condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/stack_macros.h"      condition="CM4" />
+                <file category="header"  name="rtos/FreeRTOS/10.0.1/Source/include/stream_buffer.h"     condition="CM4" />
+                <file category="sourceC" name="rtos/FreeRTOS/10.0.1/Source/croutine.c"                  condition="CM4" />
+                <file category="sourceC" name="rtos/FreeRTOS/10.0.1/Source/event_groups.c"              condition="CM4" />
+                <file category="sourceC" name="rtos/FreeRTOS/10.0.1/Source/list.c"                      condition="CM4" />
+                <file category="sourceC" name="rtos/FreeRTOS/10.0.1/Source/queue.c"                     condition="CM4" />
+                <file category="sourceC" name="rtos/FreeRTOS/10.0.1/Source/tasks.c"                     condition="CM4" />
+                <file category="sourceC" name="rtos/FreeRTOS/10.0.1/Source/timers.c"                    condition="CM4" />
+                <file category="sourceC" name="rtos/FreeRTOS/10.0.1/Source/stream_buffer.c"             condition="CM4" />
+
+                <file category="header"     name="rtos/FreeRTOS/10.0.1/Source/portable/FreeRTOSConfig.h" attr="config" version="1.0.0" condition="CM4" />
+
+                <file category="include"    name="rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/"            condition="GCC" />
+                <file category="header"     name="rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/portmacro.h" condition="CM4 GCC" />
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/port.c"      condition="CM4 GCC" />
+
+                <file category="include"    name="rtos/FreeRTOS/10.0.1/Source/portable/IAR/CM4F/"            condition="IAR" />
+                <file category="header"     name="rtos/FreeRTOS/10.0.1/Source/portable/IAR/CM4F/portmacro.h" condition="CM4 IAR" />
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/IAR/CM4F/port.c"      condition="CM4 IAR" />
+                <file category="sourceAsm"  name="rtos/FreeRTOS/10.0.1/Source/portable/IAR/CM4F/portasm.s"   condition="CM4 IAR" />
+
+                <file category="include"    name="rtos/FreeRTOS/10.0.1/Source/portable/MDK/CM4F/"            condition="ARMCC" />
+                <file category="header"     name="rtos/FreeRTOS/10.0.1/Source/portable/MDK/CM4F/portmacro.h" condition="CM4 ARMCC" />
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/MDK/CM4F/port.c"      condition="CM4 ARMCC" />
+            </files>
+        </component>
+
+        <component Cclass="RTOS" Cgroup="FreeRTOS" Cversion="10.0.1" Csub="Memory Management" Cvariant="heap_1" Cvendor="Real Time Engineers Ltd." condition="CM4" >
+            <description>The simplest. Does not support memory to be freed.</description>
+            <files>
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/MemMang/heap_1.c" condition="CM4" />
+            </files>
+        </component>
+        <component Cclass="RTOS" Cgroup="FreeRTOS" Cversion="10.0.1" Csub="Memory Management" Cvariant="heap_2" Cvendor="Real Time Engineers Ltd." condition="CM4" >
+            <description>Supports memory to be freed, but does not merge adjacent free blocks.</description>
+            <files>
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/MemMang/heap_2.c" condition="CM4" />
+            </files>
+        </component>
+        <component Cclass="RTOS" Cgroup="FreeRTOS" Cversion="10.0.1" Csub="Memory Management" Cvariant="heap_3" Cvendor="Real Time Engineers Ltd." condition="CM4" >
+            <description>Wraps the standard malloc() and free() for thread safety.</description>
+            <files>
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/MemMang/heap_3.c" condition="CM4" />
+            </files>
+        </component>
+        <component Cclass="RTOS" Cgroup="FreeRTOS" Cversion="10.0.1" Csub="Memory Management" Cvariant="heap_4" Cvendor="Real Time Engineers Ltd." condition="CM4" >
+            <description>Supports merge of adjacent free blocks to avoid fragmentation.</description>
+            <files>
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/MemMang/heap_4.c" condition="CM4" />
+            </files>
+        </component>
+        <component Cclass="RTOS" Cgroup="FreeRTOS" Cversion="10.0.1" Csub="Memory Management" Cvariant="heap_5" Cvendor="Real Time Engineers Ltd." condition="CM4" >
+            <description>The same as heap_4, with the ability to span the heap across multiple non-adjacent memory areas.</description>
+            <files>
+                <file category="sourceC"    name="rtos/FreeRTOS/10.0.1/Source/portable/MemMang/heap_5.c" condition="CM4" />
+            </files>
+        </component>
+        <component Cclass="RTOS" Cgroup="FreeRTOS" Cversion="10.0.1" Csub="Memory Management" Cvariant="None" Cvendor="Real Time Engineers Ltd." condition="CM4" >
+            <description>Use this when dynamic allocation is disabled.</description>
+            <files>
+                <file category="other"    name="rtos/FreeRTOS/10.0.1/Source/portable/MemMang/static_malloc.txt" condition="CM4" />
+            </files>
+        </component>
+
+        <!-- ********** Utilities ********** -->
+        <component Cclass="utilities" Cgroup="Retarget I/O" Cversion="1.10.0" condition="PDL Common">
+            <description>Redirects I/O functions of the standard C run-time library to the user defined target, e.g. UART</description>
+            <files>
+                <file category="include" name="utilities/" />
+                <file category="header"  name="utilities/retarget_io/stdio_user.h" attr="config" version="1.10.0" />
+                <file category="sourceC" name="utilities/retarget_io/stdio_user.c" attr="config" version="1.10.0" />
+                <file category="sourceC" name="utilities/retarget_io/retarget.c" />
+            </files>
+        </component>
+
+        <!-- ********** CMSIS-Startup components ********** -->
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.10.0" condition="PSOC60">
+            <description>System and startup for PSoC 60 devices</description>
+            <files>
+                <!-- Device header file -->
+                <file category="include" name="devices/psoc6/psoc60/include/" />
+                <file category="include" name="devices/psoc6/ip/" />
+                <file category="header" name="devices/psoc6/psoc60/include/cy8c6036bzi_f04.h" condition="CY8C6036BZI-F04" />
+                <file category="header" name="devices/psoc6/psoc60/include/cy8c6016bzi_f04.h" condition="CY8C6016BZI-F04" />
+                <file category="header" name="devices/psoc6/psoc60/include/psoc60_config.h" />
+                <file category="header" name="devices/psoc6/psoc60/include/cy_device_headers.h" />
+                <file category="header" name="devices/psoc6/psoc60/include/gpio_psoc60_124_bga.h" condition="PSOC60-124-BGA" />
+                <file category="header" name="devices/psoc6/ip/cyip_sflash.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_peri.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_cpuss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_fault.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ipc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_prot.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_flashc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_srss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_backup.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_dw.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse_data.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_profile.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_hsiom.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_gpio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smartio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lpcomp.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_csd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_tcpwm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lcd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_usbfs.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smif.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_scb.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ctdac.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_sar.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pass.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_i2s.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pdm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_headers.h" />
+
+                <!-- Startup / linker / system files -->
+                <file category="sourceAsm" name="devices/psoc6/psoc60/common/armgcc/startup/startup_psoc60_cm4.S" condition="CM4 GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc60/common/armgcc/linker/cy8c6xx6_cm4.ld" condition="PSoC 60 CY8C6xx6 CM4 GCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc60/common/iar/startup/startup_psoc60_cm4.s" condition="CM4 IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc60/common/iar/linker/cy8c6xx6_cm4.icf" condition="PSoC 60 CY8C6xx6 CM4 IAR" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc60/common/mdk/startup/startup_psoc60_cm4.s" condition="CM4 ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc60/common/mdk/linker/cy8c6xx6_cm4.scat" condition="PSoC 60 CY8C6xx6 CM4 ARMCC" attr="config" version="2.0.0" />
+
+                <file category="header"  name="devices/psoc6/psoc60/include/system_psoc60.h" attr="config" version="2.10.0" />
+                <file category="sourceC" name="devices/psoc6/psoc60/common/system_psoc60_cm4.c"     condition="CM4"  attr="config" version="2.10.0" />
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.10.0" condition="PSOC61">
+            <description>System and startup for PSoC 61 devices</description>
+            <files>
+                <!-- Device header file -->
+                <file category="include" name="devices/psoc6/psoc61/include/" />
+                <file category="include" name="devices/psoc6/ip/" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6116bzi_f54.h" condition="CY8C6116BZI-F54" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6136bzi_f14.h" condition="CY8C6136BZI-F14" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6136bzi_f34.h" condition="CY8C6136BZI-F34" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6137bzi_f14.h" condition="CY8C6137BZI-F14" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6137bzi_f34.h" condition="CY8C6137BZI-F34" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6137bzi_f54.h" condition="CY8C6137BZI-F54" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6117bzi_f34.h" condition="CY8C6117BZI-F34" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6137fdi_f02.h" condition="CY8C6137FDI-F02" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6117fdi_f02.h" condition="CY8C6117FDI-F02" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6136fdi_f42.h" condition="CY8C6136FDI-F42" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy8c6136fti_f42.h" condition="CY8C6136FTI-F42" />
+                <file category="header" name="devices/psoc6/psoc61/include/psoc61_config.h" />
+                <file category="header" name="devices/psoc6/psoc61/include/cy_device_headers.h" />
+                <file category="header" name="devices/psoc6/psoc61/include/gpio_psoc61_124_bga.h" condition="PSOC61-124-BGA" />
+                <file category="header" name="devices/psoc6/psoc61/include/gpio_psoc61_80_wlcsp.h" condition="PSOC61-80-WLCSP" />
+                <file category="header" name="devices/psoc6/ip/cyip_sflash.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_peri.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_crypto.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_cpuss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_fault.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ipc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_prot.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_flashc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_srss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_backup.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_dw.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse_data.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_profile.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_hsiom.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_gpio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smartio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_udb.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lpcomp.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_csd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_tcpwm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lcd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_usbfs.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smif.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_scb.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ctbm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ctdac.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_sar.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pass.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_i2s.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pdm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_headers.h" />
+
+                <!-- Startup / linker / system files -->
+                <file category="sourceAsm" name="devices/psoc6/psoc61/common/armgcc/startup/startup_psoc61_cm4.S" condition="CM4 GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc61/common/armgcc/linker/cy8c6xx6_cm4.ld" condition="PSoC 61 CY8C6xx6 CM4 GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc61/common/armgcc/linker/cy8c6xx7_cm4.ld" condition="PSoC 61 CY8C6xx7 CM4 GCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc61/common/iar/startup/startup_psoc61_cm4.s" condition="CM4 IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc61/common/iar/linker/cy8c6xx6_cm4.icf" condition="PSoC 61 CY8C6xx6 CM4 IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc61/common/iar/linker/cy8c6xx7_cm4.icf" condition="PSoC 61 CY8C6xx7 CM4 IAR" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc61/common/mdk/startup/startup_psoc61_cm4.s" condition="CM4 ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc61/common/mdk/linker/cy8c6xx6_cm4.scat" condition="PSoC 61 CY8C6xx6 CM4 ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc61/common/mdk/linker/cy8c6xx7_cm4.scat" condition="PSoC 61 CY8C6xx7 CM4 ARMCC" attr="config" version="2.0.0" />
+
+                <file category="header"  name="devices/psoc6/psoc61/include/system_psoc61.h" attr="config" version="2.10.0" />
+                <file category="sourceC" name="devices/psoc6/psoc61/common/system_psoc61_cm4.c"     condition="CM4"  attr="config" version="2.10.0" />
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.10.0" condition="PSOC62">
+            <description>System and startup for PSoC 62 devices</description>
+            <files>
+                <!-- Device header file -->
+                <file category="include" name="devices/psoc6/psoc62/include/" />
+                <file category="include" name="devices/psoc6/ip/" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6246bzi_d04.h" condition="CY8C6246BZI-D04" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247bzi_d44.h" condition="CY8C6247BZI-D44" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247bzi_d34.h" condition="CY8C6247BZI-D34" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247bzi_d54.h" condition="CY8C6247BZI-D54" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247fdi_d02.h" condition="CY8C6247FDI-D02" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247fdi_d32.h" condition="CY8C6247FDI-D32" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247fdi_d52.h" condition="CY8C6247FDI-D52" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247fti_d52.h" condition="CY8C6247FTI-D52" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247bzi_aud54.h" condition="CY8C6247BZI-AUD54" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy8c6247bfi_d54.h" condition="CY8C6247BFI-D54" />
+                <file category="header" name="devices/psoc6/psoc62/include/psoc62_config.h" />
+                <file category="header" name="devices/psoc6/psoc62/include/cy_device_headers.h" />
+                <file category="header" name="devices/psoc6/psoc62/include/gpio_psoc62_124_bga.h" condition="PSOC62-124-BGA" />
+                <file category="header" name="devices/psoc6/psoc62/include/gpio_psoc62_80_wlcsp.h" condition="PSOC62-80-WLCSP" />
+                <file category="header" name="devices/psoc6/ip/cyip_sflash.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_peri.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_crypto.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_cpuss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_fault.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ipc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_prot.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_flashc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_srss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_backup.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_dw.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse_data.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_profile.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_hsiom.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_gpio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smartio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_udb.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lpcomp.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_csd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_tcpwm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lcd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_usbfs.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smif.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_scb.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ctbm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ctdac.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_sar.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pass.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_i2s.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pdm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_headers.h" />
+
+                <!-- Startup / linker / system files -->
+                <file category="sourceAsm" name="devices/psoc6/psoc62/common/armgcc/startup/startup_psoc62_cm0plus.S" condition="CM0+ GCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc62/common/armgcc/startup/startup_psoc62_cm4.S" condition="CM4 GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/armgcc/linker/cy8c6xx6_cm0plus.ld" condition="PSoC 62 CY8C6xx6 CM0+ GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/armgcc/linker/cy8c6xx6_cm4_dual.ld" condition="PSoC 62 CY8C6xx6 CM4 Dual Core GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/armgcc/linker/cy8c6xx7_cm0plus.ld" condition="PSoC 62 CY8C6xx7 CM0+ GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/armgcc/linker/cy8c6xx7_cm4_dual.ld" condition="PSoC 62 CY8C6xx7 CM4 Dual Core GCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc62/common/iar/startup/startup_psoc62_cm0plus.s" condition="CM0+ IAR" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc62/common/iar/startup/startup_psoc62_cm4.s" condition="CM4 IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/iar/linker/cy8c6xx6_cm0plus.icf" condition="PSoC 62 CY8C6xx6 CM0+ IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/iar/linker/cy8c6xx6_cm4_dual.icf" condition="PSoC 62 CY8C6xx6 CM4 Dual Core IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/iar/linker/cy8c6xx7_cm0plus.icf" condition="PSoC 62 CY8C6xx7 CM0+ IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/iar/linker/cy8c6xx7_cm4_dual.icf" condition="PSoC 62 CY8C6xx7 CM4 Dual Core IAR" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc62/common/mdk/startup/startup_psoc62_cm0plus.s" condition="CM0+ ARMCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc62/common/mdk/startup/startup_psoc62_cm4.s" condition="CM4 ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/mdk/linker/cy8c6xx6_cm0plus.scat" condition="PSoC 62 CY8C6xx6 CM0+ ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/mdk/linker/cy8c6xx6_cm4_dual.scat" condition="PSoC 62 CY8C6xx6 CM4 Dual Core ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/mdk/linker/cy8c6xx7_cm0plus.scat" condition="PSoC 62 CY8C6xx7 CM0+ ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc62/common/mdk/linker/cy8c6xx7_cm4_dual.scat" condition="PSoC 62 CY8C6xx7 CM4 Dual Core ARMCC" attr="config" version="2.0.0" />
+
+                <file category="header"  name="devices/psoc6/psoc62/include/system_psoc62.h" attr="config" version="2.10.0" />
+                <file category="sourceC" name="devices/psoc6/psoc62/common/system_psoc62_cm0plus.c" condition="CM0+" attr="config" version="2.10.0" />
+                <file category="sourceC" name="devices/psoc6/psoc62/common/system_psoc62_cm4.c"     condition="CM4"  attr="config" version="2.10.0" />
+            </files>
+        </component>
+
+        <component Cclass="Device" Cgroup="Startup" Cversion="2.10.0" condition="PSOC63">
+            <description>System and startup for PSoC 63 devices</description>
+            <files>
+                <!-- Device header file -->
+                <file category="include" name="devices/psoc6/psoc63/include/" />
+                <file category="include" name="devices/psoc6/ip/" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6336bzi_blf03.h" condition="CY8C6336BZI-BLF03" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6316bzi_blf03.h" condition="CY8C6316BZI-BLF03" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6316bzi_blf53.h" condition="CY8C6316BZI-BLF53" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6336bzi_bld13.h" condition="CY8C6336BZI-BLD13" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bld43.h" condition="CY8C6347BZI-BLD43" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bld33.h" condition="CY8C6347BZI-BLD33" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bld53.h" condition="CY8C6347BZI-BLD53" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347fmi_bld13.h" condition="CY8C6347FMI-BLD13" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347fmi_bld43.h" condition="CY8C6347FMI-BLD43" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347fmi_bld33.h" condition="CY8C6347FMI-BLD33" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347fmi_bld53.h" condition="CY8C6347FMI-BLD53" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c637bzi_md76.h" condition="CY8C637BZI-MD76" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c637bzi_bld74.h" condition="CY8C637BZI-BLD74" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c637fmi_bld73.h" condition="CY8C637FMI-BLD73" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c68237bz_ble.h" condition="CY8C68237BZ-BLE" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c68237fm_ble.h" condition="CY8C68237FM-BLE" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6336bzi_bud13.h" condition="CY8C6336BZI-BUD13" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bud43.h" condition="CY8C6347BZI-BUD43" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bud33.h" condition="CY8C6347BZI-BUD33" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bud53.h" condition="CY8C6347BZI-BUD53" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6337bzi_blf13.h" condition="CY8C6337BZI-BLF13" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6336bzi_blf04.h" condition="CY8C6336BZI-BLF04" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6316bzi_blf04.h" condition="CY8C6316BZI-BLF04" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6316bzi_blf54.h" condition="CY8C6316BZI-BLF54" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6336bzi_bld14.h" condition="CY8C6336BZI-BLD14" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bld44.h" condition="CY8C6347BZI-BLD44" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bld34.h" condition="CY8C6347BZI-BLD34" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy8c6347bzi_bld54.h" condition="CY8C6347BZI-BLD54" />
+                <file category="header" name="devices/psoc6/psoc63/include/cyble_416045_02.h" condition="CYBLE-416045-02" />
+                <file category="header" name="devices/psoc6/psoc63/include/psoc63_config.h" />
+                <file category="header" name="devices/psoc6/psoc63/include/cy_device_headers.h" />
+                <file category="header" name="devices/psoc6/psoc63/include/gpio_psoc63_116_bga_ble.h" condition="PSOC63-116-BGA-BLE" />
+                <file category="header" name="devices/psoc6/psoc63/include/gpio_psoc63_104_m_csp_ble.h" condition="PSOC63-104-M-CSP-BLE" />
+                <file category="header" name="devices/psoc6/psoc63/include/gpio_psoc63_124_bga.h" condition="PSOC63-124-BGA" />
+                <file category="header" name="devices/psoc6/psoc63/include/gpio_psoc63_116_bga_usb.h" condition="PSOC63-116-BGA-USB" />
+                <file category="header" name="devices/psoc6/psoc63/include/gpio_psoc63_124_bga_sip.h" condition="PSOC63-124-BGA-SIP" />
+                <file category="header" name="devices/psoc6/psoc63/include/gpio_psoc63_43_smt.h" condition="PSOC63-43-SMT" />
+                <file category="header" name="devices/psoc6/ip/cyip_sflash.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_peri.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_crypto.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_cpuss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_fault.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ipc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_prot.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_flashc.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_srss.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_backup.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_dw.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_efuse_data.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_profile.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_hsiom.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_gpio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smartio.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_udb.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lpcomp.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_csd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_tcpwm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_lcd.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ble.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_usbfs.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_smif.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_scb.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ctbm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_ctdac.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_sar.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pass.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_i2s.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_pdm.h" />
+                <file category="header" name="devices/psoc6/ip/cyip_headers.h" />
+
+                <!-- Startup / linker / system files -->
+                <file category="sourceAsm" name="devices/psoc6/psoc63/common/armgcc/startup/startup_psoc63_cm0plus.S" condition="CM0+ GCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc63/common/armgcc/startup/startup_psoc63_cm4.S" condition="CM4 GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/armgcc/linker/cy8c6xx6_cm4.ld" condition="PSoC 63 CY8C6xx6 CM4 GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/armgcc/linker/cy8c6xx6_cm0plus.ld" condition="PSoC 63 CY8C6xx6 CM0+ GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/armgcc/linker/cy8c6xx6_cm4_dual.ld" condition="PSoC 63 CY8C6xx6 CM4 Dual Core GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/armgcc/linker/cy8c6xx7_cm4.ld" condition="PSoC 63 CY8C6xx7 CM4 GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/armgcc/linker/cy8c6xx7_cm0plus.ld" condition="PSoC 63 CY8C6xx7 CM0+ GCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/armgcc/linker/cy8c6xx7_cm4_dual.ld" condition="PSoC 63 CY8C6xx7 CM4 Dual Core GCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc63/common/iar/startup/startup_psoc63_cm0plus.s" condition="CM0+ IAR" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc63/common/iar/startup/startup_psoc63_cm4.s" condition="CM4 IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/iar/linker/cy8c6xx6_cm4.icf" condition="PSoC 63 CY8C6xx6 CM4 IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/iar/linker/cy8c6xx6_cm0plus.icf" condition="PSoC 63 CY8C6xx6 CM0+ IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/iar/linker/cy8c6xx6_cm4_dual.icf" condition="PSoC 63 CY8C6xx6 CM4 Dual Core IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/iar/linker/cy8c6xx7_cm4.icf" condition="PSoC 63 CY8C6xx7 CM4 IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/iar/linker/cy8c6xx7_cm0plus.icf" condition="PSoC 63 CY8C6xx7 CM0+ IAR" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/iar/linker/cy8c6xx7_cm4_dual.icf" condition="PSoC 63 CY8C6xx7 CM4 Dual Core IAR" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc63/common/mdk/startup/startup_psoc63_cm0plus.s" condition="CM0+ ARMCC" attr="config" version="2.0.0" />
+                <file category="sourceAsm" name="devices/psoc6/psoc63/common/mdk/startup/startup_psoc63_cm4.s" condition="CM4 ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/mdk/linker/cy8c6xx6_cm4.scat" condition="PSoC 63 CY8C6xx6 CM4 ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/mdk/linker/cy8c6xx6_cm0plus.scat" condition="PSoC 63 CY8C6xx6 CM0+ ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/mdk/linker/cy8c6xx6_cm4_dual.scat" condition="PSoC 63 CY8C6xx6 CM4 Dual Core ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/mdk/linker/cy8c6xx7_cm4.scat" condition="PSoC 63 CY8C6xx7 CM4 ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/mdk/linker/cy8c6xx7_cm0plus.scat" condition="PSoC 63 CY8C6xx7 CM0+ ARMCC" attr="config" version="2.0.0" />
+                <file category="linkerScript" name="devices/psoc6/psoc63/common/mdk/linker/cy8c6xx7_cm4_dual.scat" condition="PSoC 63 CY8C6xx7 CM4 Dual Core ARMCC" attr="config" version="2.0.0" />
+
+                <file category="header"  name="devices/psoc6/psoc63/include/system_psoc63.h" attr="config" version="2.10.0" />
+                <file category="sourceC" name="devices/psoc6/psoc63/common/system_psoc63_cm0plus.c" condition="CM0+" attr="config" version="2.10.0" />
+                <file category="sourceC" name="devices/psoc6/psoc63/common/system_psoc63_cm4.c"     condition="CM4"  attr="config" version="2.10.0" />
+            </files>
+        </component>
+
+    </components>
+</package>
