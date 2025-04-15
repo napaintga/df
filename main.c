@@ -7,7 +7,6 @@ extern uint8 startNotification;
 extern uint8 restartAdvertisement;
 
 uint8 initializeCapSenseBaseline = TRUE;
-/*Васильків Максим ФЕІ-33, 25.02.2004*/
 
 int main()
 {
